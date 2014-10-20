@@ -1,0 +1,266 @@
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Internet Banking.dll.config
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Internet Banking.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Internet Banking.pdb
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Antlr3.Runtime.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.AspNet.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.Core.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\EntityFramework.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Microsoft.Data.Edm.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Microsoft.Data.OData.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Microsoft.Web.Infrastructure.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Newtonsoft.Json.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Net.Http.Formatting.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Spatial.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Helpers.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Http.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Http.OData.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Http.WebHost.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Mvc.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Optimization.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Razor.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.Deployment.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.Razor.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\WebGrease.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\WebMatrix.Data.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\WebMatrix.WebData.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\EntityFramework.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Newtonsoft.Json.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Net.Http.Formatting.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Helpers.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Http.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Http.WebHost.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Mvc.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Razor.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.Deployment.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.Razor.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\WebMatrix.Data.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\WebMatrix.WebData.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.AspNet.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.Core.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Web.Http.OData.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Microsoft.Data.Edm.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\Microsoft.Data.OData.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\System.Spatial.xml
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\de\Microsoft.Data.Edm.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\es\Microsoft.Data.Edm.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\it\Microsoft.Data.Edm.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\de\Microsoft.Data.OData.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\es\Microsoft.Data.OData.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\fr\Microsoft.Data.OData.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\it\Microsoft.Data.OData.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\ja\Microsoft.Data.OData.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\ko\Microsoft.Data.OData.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\ru\Microsoft.Data.OData.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\de\System.Spatial.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\es\System.Spatial.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\fr\System.Spatial.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\it\System.Spatial.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\ja\System.Spatial.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\ko\System.Spatial.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\ru\System.Spatial.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\zh-Hans\System.Spatial.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\zh-Hant\System.Spatial.resources.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\obj\Debug\Internet Banking.csprojResolveAssemblyReference.cache
+D:\ASP.NET Projects\Internet Banking\Internet Banking\obj\Debug\Internet Banking.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\obj\Debug\Internet Banking.pdb
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\InternetBankingDAL.dll
+D:\ASP.NET Projects\Internet Banking\Internet Banking\bin\InternetBankingDAL.pdb
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Internet Banking.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Internet Banking.pdb
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Antlr3.Runtime.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.Core.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\EntityFramework.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\InternetBankingDAL.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Microsoft.Data.Edm.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Microsoft.Data.OData.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Newtonsoft.Json.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Net.Http.Formatting.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Spatial.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Helpers.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Http.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Http.OData.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Http.WebHost.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Mvc.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Optimization.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Razor.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.Deployment.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.Razor.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\WebGrease.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\WebMatrix.Data.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\WebMatrix.WebData.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\InternetBankingDAL.pdb
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\EntityFramework.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Newtonsoft.Json.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Net.Http.Formatting.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Helpers.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Http.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Http.WebHost.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Mvc.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Razor.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.Deployment.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.WebPages.Razor.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\WebMatrix.Data.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\WebMatrix.WebData.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.Core.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Web.Http.OData.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Microsoft.Data.Edm.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\Microsoft.Data.OData.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\System.Spatial.xml
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ru\WebMatrix.Data.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\de\System.Spatial.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\es\System.Spatial.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\fr\System.Spatial.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\it\System.Spatial.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ja\System.Spatial.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ko\System.Spatial.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ru\System.Spatial.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\obj\Debug\Internet Banking.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\obj\Debug\Internet Banking.dll
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\obj\Debug\Internet Banking.pdb
+C:\Users\User\Documents\Visual Studio 2012\Projects\Internet Banking\Internet Banking\bin\ru\EntityFramework.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Internet Banking.dll.config
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Internet Banking.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Internet Banking.pdb
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Antlr3.Runtime.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.AspNet.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.Core.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\EntityFramework.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\InternetBankingDal.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Microsoft.Data.Edm.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Microsoft.Data.OData.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Microsoft.Web.Infrastructure.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Newtonsoft.Json.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Net.Http.Formatting.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Spatial.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Helpers.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Http.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Http.OData.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Http.WebHost.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Mvc.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Optimization.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Razor.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.WebPages.Deployment.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.WebPages.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.WebPages.Razor.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\WebGrease.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\WebMatrix.Data.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\WebMatrix.WebData.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\InternetBankingDal.pdb
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\EntityFramework.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Newtonsoft.Json.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Net.Http.Formatting.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Helpers.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Http.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Http.WebHost.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Mvc.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Razor.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.WebPages.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.WebPages.Deployment.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.WebPages.Razor.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\WebMatrix.Data.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\WebMatrix.WebData.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.AspNet.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.Core.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OAuth.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Web.Http.OData.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Microsoft.Data.Edm.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\Microsoft.Data.OData.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\System.Spatial.xml
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ru\EntityFramework.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\de\Microsoft.Data.OData.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\es\Microsoft.Data.OData.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\it\Microsoft.Data.OData.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\de\System.Spatial.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\es\System.Spatial.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\fr\System.Spatial.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\it\System.Spatial.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ja\System.Spatial.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ko\System.Spatial.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\ru\System.Spatial.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\zh-Hans\System.Spatial.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\bin\zh-Hant\System.Spatial.resources.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\obj\Debug\Internet Banking.csprojResolveAssemblyReference.cache
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\obj\Debug\Internet Banking.dll
+D:\Новая папка (2)\Internet Banking\Internet Banking\Internet Banking\obj\Debug\Internet Banking.pdb

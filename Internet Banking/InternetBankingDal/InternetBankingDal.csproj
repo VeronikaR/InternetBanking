@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3CAEEF64-6BE9-4350-9D51-404A4DF2CAA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InternetBankingDal</RootNamespace>
+    <AssemblyName>InternetBankingDal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountOperations.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdditionalUserData.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Applications.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetPasswordWithFormat_Result.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetPassword_Result.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetUserByName_Result.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetUserByUserId_Result.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Paths.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Profile.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Profile_GetProperties_Result.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Roles.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_SchemaVersions.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Users.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_WebEvent_Events.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CardOperations.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cards.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientRemittances.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientRemittancesTemplates.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Convertations.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertationTemplates.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Credit.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditOperations.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditPayments.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deposit.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepositOperations.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InternetBankingEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InternetBankingEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InternetBankingEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InternetBankingEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InternetBankingEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentCategories.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentCompanies.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payments.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentTemplates.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\Implements\AdditionalUserDataProvider.cs" />
+    <Compile Include="Providers\Interfaces\IAdditionalUserDataProvider.cs" />
+    <Compile Include="Remittances.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RemittanceTemplates.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Applications.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_MembershipUsers.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Profiles.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Roles.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Users.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_UsersInRoles.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_WebPartState_Paths.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_WebPartState_Shared.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_WebPartState_User.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="InternetBankingEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>InternetBankingEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="InternetBankingEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InternetBankingEntities.edmx</DependentUpon>
+      <LastGenOutput>InternetBankingEntities.Context.cs</LastGenOutput>
+    </None>
+    <None Include="InternetBankingEntities.edmx.diagram">
+      <DependentUpon>InternetBankingEntities.edmx</DependentUpon>
+    </None>
+    <None Include="InternetBankingEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InternetBankingEntities.edmx</DependentUpon>
+      <LastGenOutput>InternetBankingEntities.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,42 @@
+﻿@model List<Internet_Banking.Models.AdditionalUserDataModel>
+@{
+    ViewBag.Title = "Список пользователей";
+}
+
+@if(Model.Any())
+{
+<h2>Список пользователей</h2>
+<table class="borderedTable">
+    <tbody>
+        <tr>
+            <td class="borderedTable">Логин</td>
+            <td class="borderedTable">ФИО</td>
+            <td class="borderedTable">Дата рождения</td>
+            <td class="borderedTable">Гражданство</td>
+            <td class="borderedTable">Идентификационный номер</td>
+            <td class="borderedTable">Номер паспорта</td>
+            <td class="borderedTable">Пароль</td>
+            <td class="borderedTable">Действие</td>
+        </tr>
+
+        @foreach(Internet_Banking.Models.AdditionalUserDataModel user in Model)
+        {
+            <tr>
+                <td class="borderedTable">@user.UserName</td>
+                <td class="borderedTable">@user.FIO</td>
+                <td class="borderedTable">@user.BirthDate</td>
+                <td class="borderedTable">@user.Nationality</td>
+                <td class="borderedTable">@user.IdentificationNumber</td>
+                <td class="borderedTable">@user.PassportNumber</td>
+                <td class="borderedTable">@user.Password</td>
+                <td class="borderedTable">@Html.ActionLink("Удалить", "DeleteUser", "Admin", new { id = user.UserId }, new { })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+else{
+<span>Какой-то непопулярный у вас Интернет-Банкинг. Пользователей нет. :(</span>
+}
+
+@Html.ActionLink("Добавить нового пользователя", "AddUser", "Admin")

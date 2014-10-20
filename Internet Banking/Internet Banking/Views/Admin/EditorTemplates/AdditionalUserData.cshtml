@@ -1,0 +1,55 @@
+﻿@model Internet_Banking.Models.AdditionalUserDataModel
+@{
+    ViewBag.Title = "Регистрация нового пользователя";  
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#BirthDate').datepicker({ dateFormat: 'dd.mm.yy' });
+    });
+</script>
+
+<h2>Введите данные нового пользователя:</h2>
+
+@using (Html.BeginForm("SaveUser", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    @Html.HiddenFor(m => m.UserId)
+    
+    <ul>
+        <li>
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.LastName)
+            @Html.TextBoxFor(m => m.LastName)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.FirstName)
+            @Html.TextBoxFor(m => m.FirstName)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.MiddleName)
+            @Html.TextBoxFor(m => m.MiddleName)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.BirthDate)
+            @Html.TextBoxFor(m => m.BirthDate)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.Nationality)
+            @Html.TextBoxFor(m => m.Nationality)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.IdentificationNumber)
+            @Html.TextBoxFor(m => m.IdentificationNumber)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.PassportNumber)
+            @Html.TextBoxFor(m => m.PassportNumber)
+        </li>
+    </ul>
+    <button type="submit">Добавить пользователя</button>
+}
