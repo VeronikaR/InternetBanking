@@ -22,7 +22,9 @@ namespace InternetBankingDal.Providers.Implements
             {
                 _internetBankingEntities.AdditionalUserData.Add(userData);
                 _internetBankingEntities.SaveChanges();
-            } catch (Exception) {
+            } 
+            catch (Exception e) 
+            {
                 return false;
             }
             return true;
