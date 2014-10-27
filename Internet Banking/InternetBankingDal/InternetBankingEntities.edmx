@@ -1796,10 +1796,6 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
             <End Role="AccountOperations" EntitySet="AccountOperations" />
             <End Role="Remittances" EntitySet="Remittances" />
           </AssociationSet>
-          <AssociationSet Name="FK_AdditionalUserData_Accounts" Association="InternetBankingModel.FK_AdditionalUserData_Accounts">
-            <End Role="Accounts" EntitySet="Accounts" />
-            <End Role="AdditionalUserData" EntitySet="AdditionalUserData" />
-          </AssociationSet>
           <AssociationSet Name="FK_Cards_Accounts" Association="InternetBankingModel.FK_Cards_Accounts">
             <End Role="Accounts" EntitySet="Accounts" />
             <End Role="Cards" EntitySet="Cards" />
@@ -1863,7 +1859,6 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
           <Property Name="IdentificationNumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="PassportNumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="IsTemporary" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_AdditionalUserData_Accounts" FromRole="AdditionalUserData" ToRole="Accounts" />
           <NavigationProperty Name="aspnet_Users" Relationship="InternetBankingModel.FK_AdditionalUserData_Accounts1" FromRole="AdditionalUserData" ToRole="aspnet_Users" />
         </EntityType>
         <EntityType Name="aspnet_Applications">
@@ -2330,7 +2325,6 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
           <Property Type="Int32" Name="Currency" Nullable="false" />
           <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
           <Property Type="Decimal" Name="OverdraftLimit" Precision="19" Scale="4" />
-          <NavigationProperty Name="AdditionalUserData" Relationship="InternetBankingModel.FK_AdditionalUserData_Accounts" FromRole="Accounts" ToRole="AdditionalUserData" />
           <NavigationProperty Name="Cards" Relationship="InternetBankingModel.FK_Cards_Accounts" FromRole="Accounts" ToRole="Cards" />
           <NavigationProperty Name="ClientRemittances" Relationship="InternetBankingModel.FK_ClientRemittances_Accounts" FromRole="Accounts" ToRole="ClientRemittances" />
           <NavigationProperty Name="Credit" Relationship="InternetBankingModel.FK_Credit_Accounts" FromRole="Accounts" ToRole="Credit" />
@@ -2568,18 +2562,6 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
             </Principal>
             <Dependent Role="Remittances">
               <PropertyRef Name="AccountOperationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AdditionalUserData_Accounts">
-          <End Type="InternetBankingModel.Accounts" Role="Accounts" Multiplicity="1" />
-          <End Type="InternetBankingModel.AdditionalUserData" Role="AdditionalUserData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Accounts">
-              <PropertyRef Name="AccountId" />
-            </Principal>
-            <Dependent Role="AdditionalUserData">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3371,7 +3353,7 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
         <DesignerProperty Name="UseLegacyProvider" Value="True" />

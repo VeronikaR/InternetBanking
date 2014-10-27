@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c28f1b432b91467986ba79cad719cdba" Name="Диаграмма1" ZoomLevel="78">
-        <EntityTypeShape EntityType="InternetBankingModel.AdditionalUserData" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBankingModel.AdditionalUserData" Width="1.5" PointX="14.75" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBankingModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBankingModel.aspnet_Membership" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBankingModel.aspnet_Paths" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
@@ -36,7 +36,7 @@
         <AssociationConnector Association="InternetBankingModel.FK__aspnet_Pr__UserI__38996AB5" ManuallyRouted="false" />
         <AssociationConnector Association="InternetBankingModel.aspnet_UsersInRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="InternetBankingModel.AccountOperations" Width="1.5" PointX="7.1318754940907816" PointY="20.424911642644979" />
-        <EntityTypeShape EntityType="InternetBankingModel.Accounts" Width="1.5" PointX="15" PointY="13.5" />
+        <EntityTypeShape EntityType="InternetBankingModel.Accounts" Width="1.5" PointX="19.125" PointY="12.5" />
         <EntityTypeShape EntityType="InternetBankingModel.CardOperations" Width="1.5" PointX="4.1054795552536287" PointY="18.012070485396343" />
         <EntityTypeShape EntityType="InternetBankingModel.Cards" Width="1.5" PointX="11.298753255651683" PointY="29.357153623065518" />
         <EntityTypeShape EntityType="InternetBankingModel.ClientRemittances" Width="1.5" PointX="3.5708787029473479" PointY="29.610206289966687" />
@@ -49,14 +49,13 @@
         <EntityTypeShape EntityType="InternetBankingModel.Deposit" Width="1.5" PointX="2.7968203326672407" PointY="23.50240036449507" />
         <EntityTypeShape EntityType="InternetBankingModel.DepositOperations" Width="1.5" PointX="11.697647072234027" PointY="21.634970019401504" />
         <EntityTypeShape EntityType="InternetBankingModel.PaymentCategories" Width="1.5" PointX="12.125" PointY="27.625" />
-        <EntityTypeShape EntityType="InternetBankingModel.PaymentCompanies" Width="1.5" PointX="2.2473860318993153" PointY="23.925735544378746" />
+        <EntityTypeShape EntityType="InternetBankingModel.PaymentCompanies" Width="1.5" PointX="2.125" PointY="20.375" />
         <EntityTypeShape EntityType="InternetBankingModel.Payments" Width="1.5" PointX="6.69144653654259" PointY="21.99783828388799" />
         <EntityTypeShape EntityType="InternetBankingModel.PaymentTemplates" Width="1.5" PointX="0.98084833146112427" PointY="10.351604362182135" />
         <EntityTypeShape EntityType="InternetBankingModel.Remittances" Width="1.5" PointX="4.062884768500405" PointY="31.655547052461444" />
         <EntityTypeShape EntityType="InternetBankingModel.RemittanceTemplates" Width="1.5" PointX="2.5224551719252277" PointY="6.1838230221456953" />
         <AssociationConnector Association="InternetBankingModel.FK_ClientRemittances_AccountOperations" />
         <AssociationConnector Association="InternetBankingModel.FK_Remittances_AccountOperations" />
-        <AssociationConnector Association="InternetBankingModel.FK_AdditionalUserData_Accounts" />
         <AssociationConnector Association="InternetBankingModel.FK_Cards_Accounts" />
         <AssociationConnector Association="InternetBankingModel.FK_ClientRemittances_Accounts" />
         <AssociationConnector Association="InternetBankingModel.FK_Credit_Accounts" />

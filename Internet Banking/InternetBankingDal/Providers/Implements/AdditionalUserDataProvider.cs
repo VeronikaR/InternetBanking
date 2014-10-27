@@ -7,10 +7,18 @@ using System.Threading.Tasks;
 
 namespace InternetBankingDal.Providers.Implements
 {
-    public class AdditionalUserDataProvider : IAdditionalUserDataProvider
+    public class AdditionalUserDataProvider : IAdditionalUserDataProvider, IDisposable
     {
         private InternetBankingEntities _internetBankingEntities;
 
+        public void Dispose()
+        {
+            if (_internetBankingEntities != null)
+            {
+                _internetBankingEntities.Dispose();
+                _internetBankingEntities = null;
+            }
+        }
         public AdditionalUserDataProvider()
         {
             _internetBankingEntities = new InternetBankingEntities();

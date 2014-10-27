@@ -16,7 +16,6 @@ namespace InternetBankingDal
     {
         public Accounts()
         {
-            this.AdditionalUserData = new HashSet<AdditionalUserData>();
             this.Cards = new HashSet<Cards>();
             this.ClientRemittances = new HashSet<ClientRemittances>();
             this.Credit = new HashSet<Credit>();
@@ -33,7 +32,6 @@ namespace InternetBankingDal
         public System.DateTime StartDate { get; set; }
         public Nullable<decimal> OverdraftLimit { get; set; }
     
-        public virtual ICollection<AdditionalUserData> AdditionalUserData { get; set; }
         public virtual ICollection<Cards> Cards { get; set; }
         public virtual ICollection<ClientRemittances> ClientRemittances { get; set; }
         public virtual ICollection<Credit> Credit { get; set; }

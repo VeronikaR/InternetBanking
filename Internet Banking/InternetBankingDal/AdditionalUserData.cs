@@ -25,7 +25,6 @@ namespace InternetBankingDal
         public string PassportNumber { get; set; }
         public bool IsTemporary { get; set; }
     
-        public virtual Accounts Accounts { get; set; }
         public virtual aspnet_Users aspnet_Users { get; set; }
     }
 }
