@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InternetBankingDal.Providers.Interfaces
+﻿namespace InternetBankingDal.Providers.Interfaces
 {
-    public interface IAdditionalUserDataProvider
+    public interface IAdditionalUserDataProvider : IGenericDataRepository<AdditionalUserData>
     {
-        bool AddUser(AdditionalUserData userData);
-        bool DeleteUser(AdditionalUserData userData);
+        //bool AddUser(AdditionalUserData userData);
+        //bool DeleteUser(AdditionalUserData userData);
 
-        AdditionalUserData GetUser(Guid userId);
-        IEnumerable<AdditionalUserData> GetUsers();
+        //AdditionalUserData GetUser(Guid userId);
+        //IEnumerable<AdditionalUserData> GetUsers();
     }
 }

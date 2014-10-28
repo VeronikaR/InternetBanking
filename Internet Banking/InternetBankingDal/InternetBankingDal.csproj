@@ -164,8 +164,14 @@
       <DependentUpon>InternetBankingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\Implements\AccountsProvider.cs" />
     <Compile Include="Providers\Implements\AdditionalUserDataProvider.cs" />
+    <Compile Include="Providers\Implements\CardsProvider.cs" />
+    <Compile Include="Providers\Implements\GenericDataRepository.cs" />
+    <Compile Include="Providers\Interfaces\IAccountsProvider.cs" />
     <Compile Include="Providers\Interfaces\IAdditionalUserDataProvider.cs" />
+    <Compile Include="Providers\Interfaces\ICardsProvider.cs" />
+    <Compile Include="Providers\Interfaces\IGenericDataRepository.cs" />
     <Compile Include="Remittances.cs">
       <DependentUpon>InternetBankingEntities.tt</DependentUpon>
     </Compile>

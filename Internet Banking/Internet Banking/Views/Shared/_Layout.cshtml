@@ -15,22 +15,25 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    <p class="site-title">@Html.ActionLink("МБанк", "Index", "Home")</p>
                 </div>
                 <div class="float-right">
                     <section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Главная", "Index", "Home")</li>
-                            <li>@Html.ActionLink("О нас", "About", "Home")</li>
-                            <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
-                            @if(Roles.IsUserInRole("Admin")){
-                                <li>@Html.ActionLink("Панель администрирования", "Dashboard", "Admin")</li>
-                            }
-                        </ul>
-                    </nav>
+                    @if (Request.IsAuthenticated)
+                    { 
+                        <nav>
+                            <ul id="menu">
+                                <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                                <li>@Html.ActionLink("О нас", "About", "Home")</li>
+                                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                                @if(Roles.IsUserInRole("Admin")){
+                                    <li>@Html.ActionLink("Панель администрирования", "Dashboard", "Admin")</li>
+                                }
+                            </ul>
+                        </nav>
+                    }
                 </div>
             </div>
         </header>
@@ -43,7 +46,7 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Internet Banking</p>
+                    <p>&copy; @DateTime.Now.Year - Internet Banking. ЗАО 'Мир Веб технологий'</p>
                 </div>
             </div>
         </footer>

@@ -1,18 +1,15 @@
-﻿using Internet_Banking.Filters;
-using Internet_Banking.Mappers;
-using Internet_Banking.Models;
-using Internet_Banking.Services.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Security;
 using InternetBankingDal;
 using InternetBankingDal.Providers.Implements;
 using InternetBankingDal.Providers.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using WebMatrix.WebData;
+using Internet_Banking.Mappers;
+using Internet_Banking.Models;
+using Internet_Banking.Services.Interfaces;
 
-namespace Internet_Banking.Services
+namespace Internet_Banking.Services.Implements
 {
     public class UsersService : IUsersService
     {
@@ -33,7 +30,7 @@ namespace Internet_Banking.Services
         // Get users
         public List<AdditionalUserDataModel> GetUsers()
         {
-            List<AdditionalUserData> usersList = _additionalUserDataProvider.GetUsers().ToList();
+            IList<AdditionalUserData> usersList = _additionalUserDataProvider.GetAll();//.GetUsers().ToList();
             return usersList.Select(x => AdditionalUserDataMapper.ToModel(x)).ToList();
         }
 
@@ -49,10 +46,10 @@ namespace Internet_Banking.Services
                 return false;
             }
 
-            model.UserId = (Guid)membershipUser.ProviderUserKey;
+            if (membershipUser.ProviderUserKey != null) model.UserId = (Guid)membershipUser.ProviderUserKey;
             AdditionalUserData userData = AdditionalUserDataMapper.FromModel(model);
             userData.IsTemporary = true;
-            _additionalUserDataProvider.AddUser(userData);
+            _additionalUserDataProvider.Add(userData);// AddUser(userData);
             Roles.AddUserToRole(model.UserName, USER_ROLE_NAME);
             return true;
         }
@@ -60,15 +57,15 @@ namespace Internet_Banking.Services
         // Delete user
         public bool DeleteUser(Guid userId)
         {
-            AdditionalUserData additionalUserData = _additionalUserDataProvider.GetUser(userId);
+            AdditionalUserData additionalUserData = _additionalUserDataProvider.GetSingle(data => data.UserId == userId);//GetUser(userId);
             if (additionalUserData != null)
             {
-                MembershipUser user = Membership.GetUser(additionalUserData.UserId, false);
-                if (user != null)
-                {
-                    Membership.DeleteUser(user.UserName, true);
-                }
-                _additionalUserDataProvider.DeleteUser(additionalUserData);
+                //MembershipUser user = Membership.GetUser(additionalUserData.UserId, false);
+                //if (user != null)
+                //{
+                //    Membership.DeleteUser(user.UserName, true);
+                //}
+                _additionalUserDataProvider.Remove(additionalUserData);//DeleteUser(additionalUserData);
             }
             return false;
         }

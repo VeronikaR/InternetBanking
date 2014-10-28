@@ -1,0 +1,64 @@
+﻿@model Internet_Banking.Models.AccountDetailModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AccountDetailModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AccountId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccountId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Type)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Number)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ammount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ammount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Currency)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Currency)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OverdraftLimit)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OverdraftLimit)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

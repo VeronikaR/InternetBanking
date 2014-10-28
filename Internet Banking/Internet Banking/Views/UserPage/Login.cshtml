@@ -1,13 +1,13 @@
 ﻿@model Internet_Banking.Models.LoginModel
 @{
-    ViewBag.Title = "Логин";
+    ViewBag.Title = "Вход в систему";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
 </hgroup>
 
-@*<section id="loginForm">*@
+<section id="loginForm">
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -25,10 +25,6 @@
                 @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
             </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>
         </ol>
         <input type="submit" value="Вход" />
     </fieldset>
@@ -36,7 +32,7 @@
         @Html.ActionLink("Регистрация", "Register")
     </p>
 }
-@*</section>*@
+</section>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

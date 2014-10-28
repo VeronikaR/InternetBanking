@@ -49,8 +49,8 @@ namespace Internet_Banking.Models
         [Display(Name = "Номер паспорта:")]
         public string PassportNumber { get; set; }
 
-        public AdditionalUserDataModel() {
-            UserId = Guid.Empty;
-        }
+        //public AdditionalUserDataModel() {
+        //    UserId = Guid.Empty;
+        //}
     }
 }

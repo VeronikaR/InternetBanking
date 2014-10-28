@@ -21,6 +21,8 @@ namespace InternetBankingDal
         public InternetBankingEntities()
             : base("name=InternetBankingEntities")
         {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

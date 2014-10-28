@@ -6,26 +6,27 @@ using Internet_Banking.Models;
 namespace Internet_Banking.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class UserPageController : Controller
     {
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            FormsAuthentication.SignOut();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
         //
-        // POST: /Account/Login
+        // POST: /User/Login
 
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
-        {
+       {
             if (ModelState.IsValid && Membership.ValidateUser(model.UserName, model.Password))
             {
-                FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                FormsAuthentication.SetAuthCookie(model.UserName, false);
                 return RedirectToLocal(returnUrl);
             }
 
@@ -35,7 +36,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /Account/LogOff
+        // POST: /User/LogOff
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -46,7 +47,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // GET: /Account/Register
+        // GET: /User/Register
 
         [AllowAnonymous]
         public ActionResult Register()
@@ -55,7 +56,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /Account/Register
+        // POST: /User/Register
 
         [HttpPost]
         [AllowAnonymous]
@@ -83,7 +84,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // GET: /Account/Manage
+        // GET: /User/Manage
 
         public ActionResult Manage(ManageMessageId? message)
         {
@@ -97,7 +98,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /Account/Manage
+        // POST: /User/Manage
 
         [HttpPost]
         [ValidateAntiForgeryToken]
