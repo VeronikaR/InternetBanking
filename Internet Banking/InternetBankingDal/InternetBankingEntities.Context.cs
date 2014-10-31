@@ -21,8 +21,6 @@ namespace InternetBankingDal
         public InternetBankingEntities()
             : base("name=InternetBankingEntities")
         {
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -69,6 +67,7 @@ namespace InternetBankingDal
         public DbSet<PaymentTemplates> PaymentTemplates { get; set; }
         public DbSet<Remittances> Remittances { get; set; }
         public DbSet<RemittanceTemplates> RemittanceTemplates { get; set; }
+        public DbSet<AccountType> AccountTypes { get; set; }
     
         public virtual ObjectResult<string> aspnet_AnyDataInTables(Nullable<int> tablesToCheck)
         {

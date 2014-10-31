@@ -52,6 +52,9 @@
     <Compile Include="Accounts.cs">
       <DependentUpon>InternetBankingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="AccountType.cs">
+      <DependentUpon>InternetBankingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="AdditionalUserData.cs">
       <DependentUpon>InternetBankingEntities.tt</DependentUpon>
     </Compile>

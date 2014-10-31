@@ -32,7 +32,7 @@ namespace Internet_Banking.Controllers
                     id = (Guid) providerUserKey;
                 }
             }
-
+            List<SummaryAccountsModel> zxc = _accountsService.GetAccounts(id);
             List<SummaryAccountsModel> model = _accountsService.GetAccounts(id);
             return View(model);
         }

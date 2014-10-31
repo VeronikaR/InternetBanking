@@ -38,5 +38,6 @@ namespace InternetBankingDal
         public virtual ICollection<Deposit> Deposit { get; set; }
         public virtual ICollection<PaymentCompanies> PaymentCompanies { get; set; }
         public virtual aspnet_Users aspnet_Users { get; set; }
+        public virtual AccountType AccountType { get; set; }
     }
 }

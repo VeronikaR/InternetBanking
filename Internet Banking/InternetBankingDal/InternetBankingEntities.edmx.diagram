@@ -68,6 +68,8 @@
         <AssociationConnector Association="InternetBankingModel.FK_Payments_PaymentCompanies" />
         <AssociationConnector Association="InternetBankingModel.FK_Accounts_aspnet_Users" />
         <AssociationConnector Association="InternetBankingModel.FK_AdditionalUserData_Accounts1" />
+        <EntityTypeShape EntityType="InternetBankingModel.AccountType" Width="1.5" PointX="8" PointY="10.875" />
+        <AssociationConnector Association="InternetBankingModel.FK_Accounts_AccountType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

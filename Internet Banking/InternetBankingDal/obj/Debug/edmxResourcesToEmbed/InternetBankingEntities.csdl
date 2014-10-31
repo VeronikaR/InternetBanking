@@ -467,6 +467,11 @@
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="AdditionalUserData" EntitySet="AdditionalUserData" />
     </AssociationSet>
+    <EntitySet Name="AccountTypes" EntityType="InternetBankingModel.AccountType" />
+    <AssociationSet Name="FK_Accounts_AccountType" Association="InternetBankingModel.FK_Accounts_AccountType">
+      <End Role="AccountType" EntitySet="AccountTypes" />
+      <End Role="Accounts" EntitySet="Accounts" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AdditionalUserData">
     <Key>
@@ -954,6 +959,7 @@
     <NavigationProperty Name="Deposit" Relationship="InternetBankingModel.FK_Deposit_Accounts" FromRole="Accounts" ToRole="Deposit" />
     <NavigationProperty Name="PaymentCompanies" Relationship="InternetBankingModel.FK_PaymentCompanies_Accounts" FromRole="Accounts" ToRole="PaymentCompanies" />
     <NavigationProperty Name="aspnet_Users" Relationship="InternetBankingModel.FK_Accounts_aspnet_Users" FromRole="Accounts" ToRole="aspnet_Users" />
+    <NavigationProperty Name="AccountType" Relationship="InternetBankingModel.FK_Accounts_AccountType" FromRole="Accounts" ToRole="AccountType" />
   </EntityType>
   <EntityType Name="CardOperations">
     <Key>
@@ -1329,6 +1335,26 @@
       </Principal>
       <Dependent Role="AdditionalUserData">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="AccountTypeId" />
+    </Key>
+    <Property Name="AccountTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_Accounts_AccountType" FromRole="AccountType" ToRole="Accounts" />
+  </EntityType>
+  <Association Name="FK_Accounts_AccountType">
+    <End Type="InternetBankingModel.AccountType" Role="AccountType" Multiplicity="1" />
+    <End Type="InternetBankingModel.Accounts" Role="Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountType">
+        <PropertyRef Name="AccountTypeId" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="Type" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

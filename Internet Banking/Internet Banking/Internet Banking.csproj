@@ -203,7 +203,6 @@
     <Compile Include="Services\Interfaces\IAccountsService.cs" />
     <Compile Include="Services\Interfaces\ICardsService.cs" />
     <Compile Include="Services\Interfaces\IUsersService.cs" />
-    <Compile Include="AccountTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

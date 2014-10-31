@@ -26,6 +26,13 @@
     <Property Name="StartDate" Type="datetime" Nullable="false" />
     <Property Name="OverdraftLimit" Type="money" />
   </EntityType>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="AccountTypeId" />
+    </Key>
+    <Property Name="AccountTypeId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
   <EntityType Name="AdditionalUserData">
     <Key>
       <PropertyRef Name="Id" />
@@ -645,6 +652,18 @@ warning 6002: The table/view 'InternetBanking.dbo.vw_aspnet_WebPartState_User' d
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Accounts_AccountType">
+    <End Role="AccountType" Type="Self.AccountType" Multiplicity="1" />
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountType">
+        <PropertyRef Name="AccountTypeId" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Accounts_aspnet_Users">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
     <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
@@ -1147,6 +1166,7 @@ warning 6002: The table/view 'InternetBanking.dbo.vw_aspnet_WebPartState_User' d
   <EntityContainer Name="Хранилище InternetBankingModelContainer">
     <EntitySet Name="AccountOperations" EntityType="Self.AccountOperations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AdditionalUserData" EntityType="Self.AdditionalUserData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
@@ -1310,6 +1330,10 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
     <AssociationSet Name="FK__aspnet_Us__UserI__236943A5" Association="Self.FK__aspnet_Us__UserI__236943A5">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Accounts_AccountType" Association="Self.FK_Accounts_AccountType">
+      <End Role="AccountType" EntitySet="AccountType" />
+      <End Role="Accounts" EntitySet="Accounts" />
     </AssociationSet>
     <AssociationSet Name="FK_Accounts_aspnet_Users" Association="Self.FK_Accounts_aspnet_Users">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
