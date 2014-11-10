@@ -1,0 +1,54 @@
+﻿@model InternetBankingDal.Payments
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Payments</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OperationId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OperationId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentCompanies.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentCompanies.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyClientIdentity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyClientIdentity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Inforamation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Inforamation)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

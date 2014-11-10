@@ -1,0 +1,102 @@
+﻿@model InternetBankingDal.Credit
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Credit</legend>
+
+        @Html.HiddenFor(model => model.CreditId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccountId, "Accounts")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("AccountId", String.Empty)
+            @Html.ValidationMessageFor(model => model.AccountId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Number)
+            @Html.ValidationMessageFor(model => model.Number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartDate)
+            @Html.ValidationMessageFor(model => model.StartDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndDate)
+            @Html.ValidationMessageFor(model => model.EndDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NextPayDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NextPayDate)
+            @Html.ValidationMessageFor(model => model.NextPayDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SetCreditLimit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SetCreditLimit)
+            @Html.ValidationMessageFor(model => model.SetCreditLimit)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaxCreditLimit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaxCreditLimit)
+            @Html.ValidationMessageFor(model => model.MaxCreditLimit)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndAmmount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndAmmount)
+            @Html.ValidationMessageFor(model => model.EndAmmount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreditPaymentId, "CreditPayments")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CreditPaymentId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CreditPaymentId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

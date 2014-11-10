@@ -1,0 +1,52 @@
+﻿@model IEnumerable<InternetBankingDal.Accounts>
+
+@{
+    ViewBag.Title = "Мои счета";
+}
+
+<h2>Мои счета</h2>
+
+<p>
+   @* @Html.ActionLink("Создать счет", "Create")*@
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cards)
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @if (item.Cards.Count >= 0)
+            {
+                @Html.DisplayFor(modelItem => item.Cards.Count)
+            }
+            else
+            {
+                @Html.DisplayName("Нет карт")
+            }
+        </td>
+        <td>
+          @*  @Html.ActionLink("Edit", "Edit", new {  id=item.AccountId }) |*@
+            @Html.ActionLink("Подробнее", "Details", new { id = item.AccountId })
+          @*  @Html.ActionLink("Delete", "Delete", new { id=item.AccountId })*@
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,9 +1,6 @@
 ﻿using Internet_Banking.Models;
 using InternetBankingDal;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Security;
 
 namespace Internet_Banking.Mappers
@@ -13,9 +10,11 @@ namespace Internet_Banking.Mappers
         //Модель из Dal'a преобразовываем для модели в представлении
         public static AdditionalUserDataModel ToModel(AdditionalUserData userData)
         {
-            MembershipUser user = Membership.GetUser(new Guid(userData.UserId.ToString()), false);
+            var user = Membership.GetUser(new Guid(userData.UserId.ToString()), false);
+            if (user == null) return null;
             var model = new AdditionalUserDataModel
             {
+                UserId = userData.UserId,
                 UserName = user.UserName,
                 LastName = userData.LastName,
                 FirstName = userData.FirstName,
@@ -24,22 +23,20 @@ namespace Internet_Banking.Mappers
                 Nationality = userData.Nationality,
                 IdentificationNumber = userData.IdentificationNumber,
                 PassportNumber = userData.PassportNumber,
-                Password = user.GetPassword()
+                //Password = user.GetPassword()
             };
             return model;
         }
 
         public static AdditionalUserData FromModel(AdditionalUserDataModel userData)
         {
-            DateTime birthDate = DateTime.Parse(userData.BirthDate);
             var user = new AdditionalUserData
             {
-                Id = userData.UserId,
                 UserId = userData.UserId,
                 LastName = userData.LastName,
                 FirstName = userData.FirstName,
                 MiddleName = userData.MiddleName,
-                BirthDate = birthDate,
+                BirthDate = DateTime.Parse(userData.BirthDate),
                 Nationality = userData.Nationality,
                 IdentificationNumber = userData.IdentificationNumber,
                 PassportNumber = userData.PassportNumber

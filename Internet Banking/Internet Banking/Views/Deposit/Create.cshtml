@@ -1,0 +1,116 @@
+﻿@model InternetBankingDal.Deposit
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Deposit</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Number)
+            @Html.ValidationMessageFor(model => model.Number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Type)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Type)
+            @Html.ValidationMessageFor(model => model.Type)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Ammount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Ammount)
+            @Html.ValidationMessageFor(model => model.Ammount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartAmmount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartAmmount)
+            @Html.ValidationMessageFor(model => model.StartAmmount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Currency)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Currency)
+            @Html.ValidationMessageFor(model => model.Currency)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartDate)
+            @Html.ValidationMessageFor(model => model.StartDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndDate)
+            @Html.ValidationMessageFor(model => model.EndDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InterestRate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InterestRate)
+            @Html.ValidationMessageFor(model => model.InterestRate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccountId, "Accounts")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("AccountId", String.Empty)
+            @Html.ValidationMessageFor(model => model.AccountId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CallbackAccountId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CallbackAccountId)
+            @Html.ValidationMessageFor(model => model.CallbackAccountId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AutoContinue)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AutoContinue)
+            @Html.ValidationMessageFor(model => model.AutoContinue)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

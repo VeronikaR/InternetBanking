@@ -1,0 +1,64 @@
+﻿@model InternetBankingDal.Cards
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Информация по карте</h2>
+
+<fieldset>
+    <legend>Cards</legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Number)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Accounts.AccountType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Accounts.AccountType.Name)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Accounts.Number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Accounts.Number)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.StartDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.EndDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndDate)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.UserSignature)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserSignature)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.State)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+</fieldset>
+<p>
+   @* @Html.ActionLink("Редактировать", "Edit", new { id=Model.CardId }) |*@
+    @Html.ActionLink("Назад к списку", "Index")
+</p>

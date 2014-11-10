@@ -10,8 +10,10 @@ namespace Internet_Banking.Services.Interfaces
     interface IUsersService
     {
         string GeneratePassword();
+
+        AdditionalUserDataModel GetUser(Guid id);
         List<AdditionalUserDataModel> GetUsers();
-        bool AddUser(AdditionalUserDataModel model);
+        string AddUser(AdditionalUserDataModel model);
         bool DeleteUser(Guid userId);
     }
 }

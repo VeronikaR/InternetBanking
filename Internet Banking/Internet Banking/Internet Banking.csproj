@@ -181,16 +181,24 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\CreditController.cs" />
+    <Compile Include="Controllers\DepositController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\UserPageController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CardsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappers\AccountMapper.cs" />
     <Compile Include="Mappers\AdditionalUserDataMapper.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\UserModels.cs" />
     <Compile Include="Models\AdditionalUserDataModel.cs" />
+    <Compile Include="Models\CardsModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Implements\UsersService.cs" />
     <Compile Include="Services\Interfaces\IUsersService.cs" />
@@ -292,15 +300,10 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\UserPage\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\UserPage\Login.cshtml" />
+    <Content Include="Views\UserPage\Manage.cshtml" />
+    <Content Include="Views\UserPage\Register.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -311,6 +314,30 @@
     <Content Include="Views\Admin\EditorTemplates\AdditionalUserData.cshtml" />
     <Content Include="Views\Admin\UsersList.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
+    <Content Include="Views\Cards\Index.cshtml" />
+    <Content Include="Views\Cards\Details.cshtml" />
+    <Content Include="Views\Cards\Create.cshtml" />
+    <Content Include="Views\Cards\Edit.cshtml" />
+    <Content Include="Views\Cards\Delete.cshtml" />
+    <Content Include="Views\Accounts.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Accounts\Details.cshtml" />
+    <Content Include="Views\Credit\Index.cshtml" />
+    <Content Include="Views\Credit\Details.cshtml" />
+    <Content Include="Views\Credit\Create.cshtml" />
+    <Content Include="Views\Credit\Edit.cshtml" />
+    <Content Include="Views\Credit\Delete.cshtml" />
+    <Content Include="Views\Deposit\Index.cshtml" />
+    <Content Include="Views\Deposit\Details.cshtml" />
+    <Content Include="Views\Deposit\Create.cshtml" />
+    <Content Include="Views\Deposit\Edit.cshtml" />
+    <Content Include="Views\Deposit\Delete.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Payment\Details.cshtml" />
+    <Content Include="Views\Payment\Create.cshtml" />
+    <Content Include="Views\Payment\Edit.cshtml" />
+    <Content Include="Views\Payment\Delete.cshtml" />
+    <Content Include="Views\UserPage\CreatePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

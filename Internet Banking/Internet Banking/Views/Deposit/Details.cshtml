@@ -1,0 +1,92 @@
+﻿@model InternetBankingDal.Deposit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Deposit</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Number)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Type)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ammount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ammount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartAmmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartAmmount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Currency)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Currency)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InterestRate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InterestRate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Accounts.Number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Accounts.Number)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CallbackAccountId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CallbackAccountId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AutoContinue)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AutoContinue)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.DepositId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

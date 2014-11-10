@@ -8,6 +8,20 @@
                 <h1>@ViewBag.Title.</h1>
                 <h2>@ViewBag.Message</h2>
             </hgroup>
+            
         </div>
     </section>
 }
+<p>
+    @Html.ActionLink("Мои счета", "Index", "Accounts")
+    @Html.ActionLink("Мои карты", "Index", "Cards")
+    @Html.ActionLink("Мои кредиты", "Index", "Credit")
+    @Html.ActionLink("Мои депозиты", "Index", "Deposit")
+
+    @Html.ActionLink("Переводы?", "Index", "Accounts")
+
+    @Html.ActionLink("Платежи", "Index", "Payment")
+
+    @Html.ActionLink("Настройки?", "Index", "Cards")
+    @Html.ActionLink("Помощь?", "Index", "Cards")
+</p>

@@ -411,6 +411,67 @@
     <EntitySet Name="PaymentTemplates" EntityType="InternetBankingModel.PaymentTemplates" />
     <EntitySet Name="Remittances" EntityType="InternetBankingModel.Remittances" />
     <EntitySet Name="RemittanceTemplates" EntityType="InternetBankingModel.RemittanceTemplates" />
+    <AssociationSet Name="FK_ClientRemittances_AccountOperations" Association="InternetBankingModel.FK_ClientRemittances_AccountOperations">
+      <End Role="AccountOperations" EntitySet="AccountOperations" />
+      <End Role="ClientRemittances" EntitySet="ClientRemittances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Remittances_AccountOperations" Association="InternetBankingModel.FK_Remittances_AccountOperations">
+      <End Role="AccountOperations" EntitySet="AccountOperations" />
+      <End Role="Remittances" EntitySet="Remittances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cards_Accounts" Association="InternetBankingModel.FK_Cards_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Cards" EntitySet="Cards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientRemittances_Accounts" Association="InternetBankingModel.FK_ClientRemittances_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="ClientRemittances" EntitySet="ClientRemittances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Credit_Accounts" Association="InternetBankingModel.FK_Credit_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Credit" EntitySet="Credit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposit_Accounts" Association="InternetBankingModel.FK_Deposit_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Deposit" EntitySet="Deposit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaymentCompanies_Accounts" Association="InternetBankingModel.FK_PaymentCompanies_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="PaymentCompanies" EntitySet="PaymentCompanies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CardOperations_Cards" Association="InternetBankingModel.FK_CardOperations_Cards">
+      <End Role="Cards" EntitySet="Cards" />
+      <End Role="CardOperations" EntitySet="CardOperations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Credit_CreditPayments" Association="InternetBankingModel.FK_Credit_CreditPayments">
+      <End Role="CreditPayments" EntitySet="CreditPayments" />
+      <End Role="Credit" EntitySet="Credit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CreditOperations_Credit" Association="InternetBankingModel.FK_CreditOperations_Credit">
+      <End Role="Credit" EntitySet="Credit" />
+      <End Role="CreditOperations" EntitySet="CreditOperations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepositOperations_Deposit" Association="InternetBankingModel.FK_DepositOperations_Deposit">
+      <End Role="Deposit" EntitySet="Deposit" />
+      <End Role="DepositOperations" EntitySet="DepositOperations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_PaymentCompanies" Association="InternetBankingModel.FK_Payments_PaymentCompanies">
+      <End Role="PaymentCompanies" EntitySet="PaymentCompanies" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Accounts_aspnet_Users" Association="InternetBankingModel.FK_Accounts_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="Accounts" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdditionalUserData_Accounts1" Association="InternetBankingModel.FK_AdditionalUserData_Accounts1">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="AdditionalUserData" EntitySet="AdditionalUserData" />
+    </AssociationSet>
+    <EntitySet Name="AccountTypes" EntityType="InternetBankingModel.AccountType" />
+    <AssociationSet Name="FK_Accounts_AccountType" Association="InternetBankingModel.FK_Accounts_AccountType">
+      <End Role="AccountType" EntitySet="AccountTypes" />
+      <End Role="Accounts" EntitySet="Accounts" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AdditionalUserData">
     <Key>
@@ -426,6 +487,7 @@
     <Property Name="IdentificationNumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="PassportNumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="IsTemporary" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="aspnet_Users" Relationship="InternetBankingModel.FK_AdditionalUserData_Accounts1" FromRole="AdditionalUserData" ToRole="aspnet_Users" />
   </EntityType>
   <EntityType Name="aspnet_Applications">
     <Key>
@@ -549,6 +611,8 @@
     <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="InternetBankingModel.FK__aspnet_Pe__UserI__693CA210" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
     <NavigationProperty Name="aspnet_Profile" Relationship="InternetBankingModel.FK__aspnet_Pr__UserI__38996AB5" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
     <NavigationProperty Name="aspnet_Roles" Relationship="InternetBankingModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+    <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_Accounts_aspnet_Users" FromRole="aspnet_Users" ToRole="Accounts" />
+    <NavigationProperty Name="AdditionalUserData" Relationship="InternetBankingModel.FK_AdditionalUserData_Accounts1" FromRole="aspnet_Users" ToRole="AdditionalUserData" />
   </EntityType>
   <EntityType Name="aspnet_WebEvent_Events">
     <Key>
@@ -874,6 +938,8 @@
     <Property Type="Decimal" Name="Ammount" Nullable="false" Precision="19" Scale="4" />
     <Property Type="Int32" Name="Currency" />
     <Property Type="Decimal" Name="Balance" Nullable="false" Precision="19" Scale="4" />
+    <NavigationProperty Name="ClientRemittances" Relationship="InternetBankingModel.FK_ClientRemittances_AccountOperations" FromRole="AccountOperations" ToRole="ClientRemittances" />
+    <NavigationProperty Name="Remittances" Relationship="InternetBankingModel.FK_Remittances_AccountOperations" FromRole="AccountOperations" ToRole="Remittances" />
   </EntityType>
   <EntityType Name="Accounts">
     <Key>
@@ -887,6 +953,13 @@
     <Property Type="Int32" Name="Currency" Nullable="false" />
     <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
     <Property Type="Decimal" Name="OverdraftLimit" Precision="19" Scale="4" />
+    <NavigationProperty Name="Cards" Relationship="InternetBankingModel.FK_Cards_Accounts" FromRole="Accounts" ToRole="Cards" />
+    <NavigationProperty Name="ClientRemittances" Relationship="InternetBankingModel.FK_ClientRemittances_Accounts" FromRole="Accounts" ToRole="ClientRemittances" />
+    <NavigationProperty Name="Credit" Relationship="InternetBankingModel.FK_Credit_Accounts" FromRole="Accounts" ToRole="Credit" />
+    <NavigationProperty Name="Deposit" Relationship="InternetBankingModel.FK_Deposit_Accounts" FromRole="Accounts" ToRole="Deposit" />
+    <NavigationProperty Name="PaymentCompanies" Relationship="InternetBankingModel.FK_PaymentCompanies_Accounts" FromRole="Accounts" ToRole="PaymentCompanies" />
+    <NavigationProperty Name="aspnet_Users" Relationship="InternetBankingModel.FK_Accounts_aspnet_Users" FromRole="Accounts" ToRole="aspnet_Users" />
+    <NavigationProperty Name="AccountType" Relationship="InternetBankingModel.FK_Accounts_AccountType" FromRole="Accounts" ToRole="AccountType" />
   </EntityType>
   <EntityType Name="CardOperations">
     <Key>
@@ -901,6 +974,7 @@
     <Property Type="Int32" Name="Currency" Nullable="false" />
     <Property Type="Decimal" Name="AmountAccountCurrency" Nullable="false" Precision="19" Scale="4" />
     <Property Type="Decimal" Name="StartBalance" Nullable="false" Precision="19" Scale="4" />
+    <NavigationProperty Name="Cards" Relationship="InternetBankingModel.FK_CardOperations_Cards" FromRole="CardOperations" ToRole="Cards" />
   </EntityType>
   <EntityType Name="Cards">
     <Key>
@@ -914,6 +988,8 @@
     <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
     <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="3" />
     <Property Type="Int32" Name="State" Nullable="false" />
+    <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_Cards_Accounts" FromRole="Cards" ToRole="Accounts" />
+    <NavigationProperty Name="CardOperations" Relationship="InternetBankingModel.FK_CardOperations_Cards" FromRole="Cards" ToRole="CardOperations" />
   </EntityType>
   <EntityType Name="ClientRemittances">
     <Key>
@@ -923,6 +999,8 @@
     <Property Type="Guid" Name="EndAccountId" Nullable="false" />
     <Property Type="Guid" Name="AccountOperationId" Nullable="false" />
     <Property Type="String" Name="RecipientName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AccountOperations" Relationship="InternetBankingModel.FK_ClientRemittances_AccountOperations" FromRole="ClientRemittances" ToRole="AccountOperations" />
+    <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_ClientRemittances_Accounts" FromRole="ClientRemittances" ToRole="Accounts" />
   </EntityType>
   <EntityType Name="ClientRemittancesTemplates">
     <Key>
@@ -972,6 +1050,9 @@
     <Property Type="Decimal" Name="MaxCreditLimit" Precision="19" Scale="4" />
     <Property Type="Decimal" Name="EndAmmount" Nullable="false" Precision="19" Scale="4" />
     <Property Type="Guid" Name="CreditPaymentId" Nullable="false" />
+    <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_Credit_Accounts" FromRole="Credit" ToRole="Accounts" />
+    <NavigationProperty Name="CreditPayments" Relationship="InternetBankingModel.FK_Credit_CreditPayments" FromRole="Credit" ToRole="CreditPayments" />
+    <NavigationProperty Name="CreditOperations" Relationship="InternetBankingModel.FK_CreditOperations_Credit" FromRole="Credit" ToRole="CreditOperations" />
   </EntityType>
   <EntityType Name="CreditOperations">
     <Key>
@@ -983,6 +1064,7 @@
     <Property Type="DateTime" Name="OperationDate" Nullable="false" Precision="3" />
     <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
     <Property Type="Int32" Name="Currency" Nullable="false" />
+    <NavigationProperty Name="Credit" Relationship="InternetBankingModel.FK_CreditOperations_Credit" FromRole="CreditOperations" ToRole="Credit" />
   </EntityType>
   <EntityType Name="CreditPayments">
     <Key>
@@ -995,6 +1077,7 @@
     <Property Type="Decimal" Name="Reward" Nullable="false" Precision="19" Scale="4" />
     <Property Type="Decimal" Name="Fine" Nullable="false" Precision="19" Scale="4" />
     <Property Type="Int32" Name="Currency" Nullable="false" />
+    <NavigationProperty Name="Credit" Relationship="InternetBankingModel.FK_Credit_CreditPayments" FromRole="CreditPayments" ToRole="Credit" />
   </EntityType>
   <EntityType Name="Deposit">
     <Key>
@@ -1012,6 +1095,8 @@
     <Property Type="Guid" Name="AccountId" Nullable="false" />
     <Property Type="Guid" Name="CallbackAccountId" Nullable="false" />
     <Property Type="Boolean" Name="AutoContinue" Nullable="false" />
+    <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_Deposit_Accounts" FromRole="Deposit" ToRole="Accounts" />
+    <NavigationProperty Name="DepositOperations" Relationship="InternetBankingModel.FK_DepositOperations_Deposit" FromRole="Deposit" ToRole="DepositOperations" />
   </EntityType>
   <EntityType Name="DepositOperations">
     <Key>
@@ -1024,6 +1109,7 @@
     <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
     <Property Type="Decimal" Name="EndBalance" Nullable="false" Precision="19" Scale="4" />
+    <NavigationProperty Name="Deposit" Relationship="InternetBankingModel.FK_DepositOperations_Deposit" FromRole="DepositOperations" ToRole="Deposit" />
   </EntityType>
   <EntityType Name="PaymentCategories">
     <Key>
@@ -1039,6 +1125,8 @@
     <Property Type="Guid" Name="PaymentCompanyId" Nullable="false" />
     <Property Type="Guid" Name="AccountId" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_PaymentCompanies_Accounts" FromRole="PaymentCompanies" ToRole="Accounts" />
+    <NavigationProperty Name="Payments" Relationship="InternetBankingModel.FK_Payments_PaymentCompanies" FromRole="PaymentCompanies" ToRole="Payments" />
   </EntityType>
   <EntityType Name="Payments">
     <Key>
@@ -1049,6 +1137,7 @@
     <Property Type="Guid" Name="PaymentCompanyId" Nullable="false" />
     <Property Type="String" Name="CompanyClientIdentity" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Inforamation" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PaymentCompanies" Relationship="InternetBankingModel.FK_Payments_PaymentCompanies" FromRole="Payments" ToRole="PaymentCompanies" />
   </EntityType>
   <EntityType Name="PaymentTemplates">
     <Key>
@@ -1068,6 +1157,7 @@
     <Property Type="Guid" Name="RemittanceId" Nullable="false" />
     <Property Type="Guid" Name="EndAccount" Nullable="false" />
     <Property Type="Guid" Name="AccountOperationId" Nullable="false" />
+    <NavigationProperty Name="AccountOperations" Relationship="InternetBankingModel.FK_Remittances_AccountOperations" FromRole="Remittances" ToRole="AccountOperations" />
   </EntityType>
   <EntityType Name="RemittanceTemplates">
     <Key>
@@ -1080,4 +1170,192 @@
     <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
     <Property Type="Int32" Name="Currency" Nullable="false" />
   </EntityType>
+  <Association Name="FK_ClientRemittances_AccountOperations">
+    <End Type="InternetBankingModel.AccountOperations" Role="AccountOperations" Multiplicity="1" />
+    <End Type="InternetBankingModel.ClientRemittances" Role="ClientRemittances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountOperations">
+        <PropertyRef Name="AccountOperationId" />
+      </Principal>
+      <Dependent Role="ClientRemittances">
+        <PropertyRef Name="AccountOperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Remittances_AccountOperations">
+    <End Type="InternetBankingModel.AccountOperations" Role="AccountOperations" Multiplicity="1" />
+    <End Type="InternetBankingModel.Remittances" Role="Remittances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountOperations">
+        <PropertyRef Name="AccountOperationId" />
+      </Principal>
+      <Dependent Role="Remittances">
+        <PropertyRef Name="AccountOperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cards_Accounts">
+    <End Type="InternetBankingModel.Accounts" Role="Accounts" Multiplicity="1" />
+    <End Type="InternetBankingModel.Cards" Role="Cards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="Cards">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientRemittances_Accounts">
+    <End Type="InternetBankingModel.Accounts" Role="Accounts" Multiplicity="1" />
+    <End Type="InternetBankingModel.ClientRemittances" Role="ClientRemittances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="ClientRemittances">
+        <PropertyRef Name="EndAccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Credit_Accounts">
+    <End Type="InternetBankingModel.Accounts" Role="Accounts" Multiplicity="1" />
+    <End Type="InternetBankingModel.Credit" Role="Credit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="Credit">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposit_Accounts">
+    <End Type="InternetBankingModel.Accounts" Role="Accounts" Multiplicity="1" />
+    <End Type="InternetBankingModel.Deposit" Role="Deposit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaymentCompanies_Accounts">
+    <End Type="InternetBankingModel.Accounts" Role="Accounts" Multiplicity="1" />
+    <End Type="InternetBankingModel.PaymentCompanies" Role="PaymentCompanies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="AccountId" />
+      </Principal>
+      <Dependent Role="PaymentCompanies">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CardOperations_Cards">
+    <End Type="InternetBankingModel.Cards" Role="Cards" Multiplicity="1" />
+    <End Type="InternetBankingModel.CardOperations" Role="CardOperations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cards">
+        <PropertyRef Name="CardId" />
+      </Principal>
+      <Dependent Role="CardOperations">
+        <PropertyRef Name="CardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Credit_CreditPayments">
+    <End Type="InternetBankingModel.CreditPayments" Role="CreditPayments" Multiplicity="1" />
+    <End Type="InternetBankingModel.Credit" Role="Credit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CreditPayments">
+        <PropertyRef Name="CreditPaymentId" />
+      </Principal>
+      <Dependent Role="Credit">
+        <PropertyRef Name="CreditPaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CreditOperations_Credit">
+    <End Type="InternetBankingModel.Credit" Role="Credit" Multiplicity="1" />
+    <End Type="InternetBankingModel.CreditOperations" Role="CreditOperations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Credit">
+        <PropertyRef Name="CreditId" />
+      </Principal>
+      <Dependent Role="CreditOperations">
+        <PropertyRef Name="CreditId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepositOperations_Deposit">
+    <End Type="InternetBankingModel.Deposit" Role="Deposit" Multiplicity="1" />
+    <End Type="InternetBankingModel.DepositOperations" Role="DepositOperations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deposit">
+        <PropertyRef Name="DepositId" />
+      </Principal>
+      <Dependent Role="DepositOperations">
+        <PropertyRef Name="DepositId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_PaymentCompanies">
+    <End Type="InternetBankingModel.PaymentCompanies" Role="PaymentCompanies" Multiplicity="1" />
+    <End Type="InternetBankingModel.Payments" Role="Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentCompanies">
+        <PropertyRef Name="PaymentCompanyId" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="PaymentCompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Accounts_aspnet_Users">
+    <End Type="InternetBankingModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+    <End Type="InternetBankingModel.Accounts" Role="Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdditionalUserData_Accounts1">
+    <End Type="InternetBankingModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+    <End Type="InternetBankingModel.AdditionalUserData" Role="AdditionalUserData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="AdditionalUserData">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="AccountTypeId" />
+    </Key>
+    <Property Name="AccountTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_Accounts_AccountType" FromRole="AccountType" ToRole="Accounts" />
+  </EntityType>
+  <Association Name="FK_Accounts_AccountType">
+    <End Type="InternetBankingModel.AccountType" Role="AccountType" Multiplicity="1" />
+    <End Type="InternetBankingModel.Accounts" Role="Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountType">
+        <PropertyRef Name="AccountTypeId" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

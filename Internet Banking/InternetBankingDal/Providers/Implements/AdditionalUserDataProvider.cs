@@ -2,15 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InternetBankingDal.Providers.Implements
 {
-    public class AdditionalUserDataProvider : IAdditionalUserDataProvider
+    public class AdditionalUserDataProvider : IAdditionalUserDataProvider, IDisposable
     {
         private InternetBankingEntities _internetBankingEntities;
 
+        public void Dispose()
+        {
+            if (_internetBankingEntities != null)
+            {
+                _internetBankingEntities.Dispose();
+                _internetBankingEntities = null;
+            }
+        }
         public AdditionalUserDataProvider()
         {
             _internetBankingEntities = new InternetBankingEntities();
@@ -22,7 +28,9 @@ namespace InternetBankingDal.Providers.Implements
             {
                 _internetBankingEntities.AdditionalUserData.Add(userData);
                 _internetBankingEntities.SaveChanges();
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 return false;
             }
             return true;
@@ -44,7 +52,7 @@ namespace InternetBankingDal.Providers.Implements
 
         public AdditionalUserData GetUser(Guid userId)
         {
-            return _internetBankingEntities.AdditionalUserData.SingleOrDefault(x => x.Id == userId);
+            return _internetBankingEntities.AdditionalUserData.SingleOrDefault(x => x.UserId == userId);
         }
 
         public IEnumerable<AdditionalUserData> GetUsers()

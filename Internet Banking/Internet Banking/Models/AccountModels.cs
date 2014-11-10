@@ -1,97 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Globalization;
-using System.Web.Security;
+using InternetBankingDal;
 
 namespace Internet_Banking.Models
 {
-    public class UsersContext : DbContext
+    public class SummaryAccountsModel
     {
-        public UsersContext()
-            : base("DefaultConnection")
-        {
-        }
+        //	Название счета (тип счета)
+        //	Номер счета
+        //	Признак наличия выпущенной и активной карты к счету //TODO
 
-        public DbSet<UserProfile> UserProfiles { get; set; }
+        public Guid AccountId { get; set; }
+
+        [Required]
+        [Display(Name = "Название счета:")]
+        public string Type { get; set; }
+        [Required]
+        [Display(Name = "Номер счета:")]
+        public string Number { get; set; }
+        [Required]
+        [Display(Name = "Активная карта:")]
+        public bool ActiveCard { get; set; }
     }
 
-    [Table("UserProfile")]
-    public class UserProfile
+    public class AccountDetailModel
     {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-    }
+        //	Название счета (тип счета)
+        //	Номер счета
+        //	Доступный остаток на счете 
+        //	Валюта счета
+        //	Признак наличия выпущенной и активной карты к счету
+        //	Дата открытия
+        //	Установленный лимит овердрафта
 
-    public class RegisterExternalLoginModel
-    {
-        [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
-        public string ExternalLoginData { get; set; }
-    }
-
-    public class LocalPasswordModel
-    {
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
-        public string OldPassword { get; set; }
+        public Guid AccountId { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "New password")]
-        public string NewPassword { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
-    }
-
-    public class LoginModel
-    {
+        [Display(Name = "Название счета:")]
+        public string Type { get; set; }
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
+        [Display(Name = "Номер счета:")]
+        public string Number { get; set; }
         [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
-
-        [Display(Name = "Remember me?")]
-        public bool RememberMe { get; set; }
-    }
-
-    public class RegisterModel
-    {
+        [Display(Name = "Доступный остаток на счете:")]
+        public decimal Ammount { get; set; }
         [Required]
-        [Display(Name = "Логин:")]
-        public string UserName { get; set; }
+        [Display(Name = "Валюта:")]
+        public int Currency { get; set; }
+        [Required]
+        [Display(Name = "Дата открытия:")]
+        public DateTime StartDate { get; set; }
+        [Required]
+        [Display(Name = "Установленный лимит овердрафта:")]
+        public decimal? OverdraftLimit { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 8)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Пароль")]
-        public string Password { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Подтвержение пароля:")]
-        [Compare("Password", ErrorMessage = "Неправильное подтверждение пароля")]  //TODO придумать.)
-        public string ConfirmPassword { get; set; }
-    }
-
-    public class ExternalLogin
-    {
-        public string Provider { get; set; }
-        public string ProviderDisplayName { get; set; }
-        public string ProviderUserId { get; set; }
+        [Display(Name = "Карты, привязанные к этому счету:")]
+        public virtual ICollection<Cards> Cards { get; set; }
     }
 }

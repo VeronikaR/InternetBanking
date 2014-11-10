@@ -50,6 +50,14 @@
             @Html.LabelFor(m => m.PassportNumber)
             @Html.TextBoxFor(m => m.PassportNumber)
         </li>
+        @if (Model.Password != null)
+        {
+            <li>
+            @Html.LabelFor(m => m.Password)
+            @Html.TextBoxFor(m => m.Password)
+            </li>
+        }
+        
     </ul>
     <button type="submit">Добавить пользователя</button>
 }
