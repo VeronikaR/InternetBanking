@@ -12,6 +12,7 @@ namespace Internet_Banking.Models
     {
         const string FioTemplateString = "{0} {1} {2}";
 
+        [Display(Name = "Пользователь создан. Временный пароль:")]
         public string Password { get; set; }
         public string FIO { get { return string.Format(FioTemplateString, LastName, FirstName, MiddleName); } }
 

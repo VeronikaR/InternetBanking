@@ -14,7 +14,6 @@ namespace InternetBankingDal
     
     public partial class AdditionalUserData
     {
-        public System.Guid Id { get; set; }
         public System.Guid UserId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }

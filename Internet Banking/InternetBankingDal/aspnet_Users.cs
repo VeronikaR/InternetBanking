@@ -19,7 +19,6 @@ namespace InternetBankingDal
             this.aspnet_PersonalizationPerUser = new HashSet<aspnet_PersonalizationPerUser>();
             this.aspnet_Roles = new HashSet<aspnet_Roles>();
             this.Accounts = new HashSet<Accounts>();
-            this.AdditionalUserData = new HashSet<AdditionalUserData>();
         }
     
         public System.Guid ApplicationId { get; set; }
@@ -36,6 +35,6 @@ namespace InternetBankingDal
         public virtual aspnet_Profile aspnet_Profile { get; set; }
         public virtual ICollection<aspnet_Roles> aspnet_Roles { get; set; }
         public virtual ICollection<Accounts> Accounts { get; set; }
-        public virtual ICollection<AdditionalUserData> AdditionalUserData { get; set; }
+        public virtual AdditionalUserData AdditionalUserData { get; set; }
     }
 }

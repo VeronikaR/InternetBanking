@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c28f1b432b91467986ba79cad719cdba" Name="Диаграмма1" ZoomLevel="78">
-        <EntityTypeShape EntityType="InternetBankingModel.AdditionalUserData" Width="1.5" PointX="7.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="InternetBankingModel.AdditionalUserData" Width="1.5" PointX="9.875" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBankingModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBankingModel.aspnet_Membership" Width="1.5" PointX="8" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="InternetBankingModel.aspnet_Paths" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
@@ -67,9 +67,9 @@
         <AssociationConnector Association="InternetBankingModel.FK_DepositOperations_Deposit" />
         <AssociationConnector Association="InternetBankingModel.FK_Payments_PaymentCompanies" />
         <AssociationConnector Association="InternetBankingModel.FK_Accounts_aspnet_Users" />
-        <AssociationConnector Association="InternetBankingModel.FK_AdditionalUserData_Accounts1" />
         <EntityTypeShape EntityType="InternetBankingModel.AccountType" Width="1.5" PointX="8" PointY="10.875" />
         <AssociationConnector Association="InternetBankingModel.FK_Accounts_AccountType" />
+        <AssociationConnector Association="InternetBankingModel.FK_AdditionalUserData_Accounts" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

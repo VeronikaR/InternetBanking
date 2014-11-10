@@ -1,4 +1,6 @@
-﻿using Internet_Banking.Filters;
+﻿using InternetBankingDal;
+using InternetBankingDal.Providers.Implements;
+using Internet_Banking.Filters;
 using Internet_Banking.Models;
 using Internet_Banking.Services;
 using Internet_Banking.Services.Implements;
@@ -14,7 +16,8 @@ namespace Internet_Banking.Controllers
 {
     public class AdminController : Controller
     {
-        private IUsersService _userService;
+        private readonly IUsersService _userService;
+        private readonly GenericDataRepository<AdditionalUserData> _repositoryUser = new GenericDataRepository<AdditionalUserData>();
 
         public AdminController()
         {
@@ -37,8 +40,13 @@ namespace Internet_Banking.Controllers
         {
             if (ModelState.IsValid)
             {
-                _userService.AddUser(model);
-                return RedirectToAction("UsersList");
+                if (Membership.FindUsersByName(model.UserName).Count == 0)
+                {
+                    model.Password = _userService.AddUser(model);
+                    return View("EditorTemplates/AdditionalUserData", model);
+                   // return RedirectToAction("UsersList");
+                }
+                ModelState.AddModelError("", "Такой логин существует, придумайте другой.");
             }
 
             return View("EditorTemplates/AdditionalUserData", model);

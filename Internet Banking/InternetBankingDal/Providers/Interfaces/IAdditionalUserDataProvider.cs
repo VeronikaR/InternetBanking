@@ -1,11 +1,14 @@
-﻿namespace InternetBankingDal.Providers.Interfaces
-{
-    public interface IAdditionalUserDataProvider : IGenericDataRepository<AdditionalUserData>
-    {
-        //bool AddUser(AdditionalUserData userData);
-        //bool DeleteUser(AdditionalUserData userData);
+﻿using System;
+using System.Collections.Generic;
 
-        //AdditionalUserData GetUser(Guid userId);
-        //IEnumerable<AdditionalUserData> GetUsers();
+namespace InternetBankingDal.Providers.Interfaces
+{
+    public interface IAdditionalUserDataProvider 
+    {
+        bool AddUser(AdditionalUserData userData);
+        bool DeleteUser(AdditionalUserData userData);
+
+        AdditionalUserData GetUser(Guid userId);
+        IEnumerable<AdditionalUserData> GetUsers();
     }
 }

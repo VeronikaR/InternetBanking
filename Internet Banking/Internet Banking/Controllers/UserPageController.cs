@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Security;
+using InternetBankingDal;
+using InternetBankingDal.Providers.Implements;
 using Internet_Banking.Models;
+using Internet_Banking.Services.Implements;
+using Internet_Banking.Services.Interfaces;
 
 namespace Internet_Banking.Controllers
 {
     [Authorize]
     public class UserPageController : Controller
     {
+        private readonly GenericDataRepository<AdditionalUserData> _repositoryUser = new GenericDataRepository<AdditionalUserData>();
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -23,10 +29,13 @@ namespace Internet_Banking.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
-       {
-
+        {
+            bool isTemp;
             if (ModelState.IsValid && Membership.ValidateUser(model.UserName, model.Password))
             {
+                if (_repositoryUser.GetSingle(x => x.UserId == (Guid) Membership.GetUser(model.UserName).ProviderUserKey).IsTemporary)
+                    return RedirectToAction("CreatePassword", "UserPage", new { oldPassword = model.Password });
+                //if(Membership.GetUser(model.UserName).ProviderUserKey)
                 FormsAuthentication.SetAuthCookie(model.UserName, false);
                 return RedirectToLocal(returnUrl);
             }
@@ -131,6 +140,51 @@ namespace Internet_Banking.Controllers
             }
             
             // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+        //
+        // GET: /User/CreatePassword
+        public ActionResult CreatePassword(ManageMessageId? message)
+        {
+            ViewBag.StatusMessage =
+                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                : "";
+            ViewBag.ReturnUrl = Url.Action("Manage");
+            return View();
+        }
+
+        //
+        // POST: /User/CreatePassword
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreatePassword(CreatePasswordModel model, string oldPassword)
+        {
+            ViewBag.ReturnUrl = Url.Action("Manage");
+            if (ModelState.IsValid)
+            {
+                // ChangePassword will throw an exception rather than return false in certain failure scenarios.
+                bool changePasswordSucceeded;
+                try
+                {
+                    changePasswordSucceeded = Membership.Provider.ChangePassword(User.Identity.Name, oldPassword,
+                        model.NewPassword);
+                }
+                catch (Exception)
+                {
+                    changePasswordSucceeded = false;
+                }
+
+                if (changePasswordSucceeded)
+                {
+                    return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
+                }
+                ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+            }
+
+             //If we got this far, something failed, redisplay form
             return View(model);
         }
 

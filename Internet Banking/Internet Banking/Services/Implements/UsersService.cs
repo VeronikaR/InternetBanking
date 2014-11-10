@@ -24,41 +24,48 @@ namespace Internet_Banking.Services.Implements
         // Generate password
         public string GeneratePassword()
         {
-            return "111190Ihjkdff*%";  //TODO
+            return Membership.GeneratePassword(12, 2);
+           // return "111190Ihjkdff*%";  
         }
 
         // Get users
         public List<AdditionalUserDataModel> GetUsers()
         {
-            IList<AdditionalUserData> usersList = _additionalUserDataProvider.GetAll();//.GetUsers().ToList();
-            return usersList.Select(x => AdditionalUserDataMapper.ToModel(x)).ToList();
+            IList<AdditionalUserData> usersList = _additionalUserDataProvider.GetUsers().ToList();
+            return usersList.Select(AdditionalUserDataMapper.ToModel).ToList();
         }
 
-        // Add user
-        public bool AddUser(AdditionalUserDataModel model)
+        public AdditionalUserDataModel GetUser(Guid id)
         {
+            return AdditionalUserDataMapper.ToModel(_additionalUserDataProvider.GetUser(id));
+        }
+        // Add user
+        public string AddUser(AdditionalUserDataModel model)
+        {
+            
             model.Password = GeneratePassword();
 
-            //Membership.CreateUser(model.UserName, model.Password);
+            Membership.CreateUser(model.UserName, model.Password);
             MembershipUser membershipUser = Membership.GetUser(model.UserName);
-            if (membershipUser == null)
-            {
-                Membership.CreateUser(model.UserName, model.Password);
-                return false;
-            }
+            //if (membershipUser == null)
+            //{
+            //    Membership.CreateUser(model.UserName, model.Password);
+            //    return false;
+            //}
 
-            if (membershipUser.ProviderUserKey != null) model.UserId = (Guid)membershipUser.ProviderUserKey;
+            if (membershipUser != null && membershipUser.ProviderUserKey != null) 
+                model.UserId = (Guid)membershipUser.ProviderUserKey;
             AdditionalUserData userData = AdditionalUserDataMapper.FromModel(model);
             userData.IsTemporary = true;
-            _additionalUserDataProvider.Add(userData);// AddUser(userData);
+            _additionalUserDataProvider.AddUser(userData);
             Roles.AddUserToRole(model.UserName, USER_ROLE_NAME);
-            return true;
+            return model.Password;
         }
 
         // Delete user
         public bool DeleteUser(Guid userId)
         {
-            AdditionalUserData additionalUserData = _additionalUserDataProvider.GetSingle(data => data.UserId == userId);//GetUser(userId);
+            AdditionalUserData additionalUserData = _additionalUserDataProvider.GetUser(userId);
             if (additionalUserData != null)
             {
                 //MembershipUser user = Membership.GetUser(additionalUserData.UserId, false);
@@ -66,7 +73,7 @@ namespace Internet_Banking.Services.Implements
                 //{
                 //    Membership.DeleteUser(user.UserName, true);
                 //}
-                _additionalUserDataProvider.Remove(additionalUserData);//DeleteUser(additionalUserData);
+                _additionalUserDataProvider.DeleteUser(additionalUserData);
             }
             return false;
         }

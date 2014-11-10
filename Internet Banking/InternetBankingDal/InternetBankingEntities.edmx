@@ -40,9 +40,8 @@
         </EntityType>
         <EntityType Name="AdditionalUserData">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
@@ -683,7 +682,7 @@ warning 6002: The table/view 'InternetBanking.dbo.vw_aspnet_WebPartState_User' d
         </Association>
         <Association Name="FK_AdditionalUserData_Accounts">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
-          <End Role="AdditionalUserData" Type="Self.AdditionalUserData" Multiplicity="*" />
+          <End Role="AdditionalUserData" Type="Self.AdditionalUserData" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" />
@@ -1864,21 +1863,20 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="Accounts" EntitySet="Accounts" />
           </AssociationSet>
-          <AssociationSet Name="FK_AdditionalUserData_Accounts1" Association="InternetBankingModel.FK_AdditionalUserData_Accounts1">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="AdditionalUserData" EntitySet="AdditionalUserData" />
-          </AssociationSet>
           <EntitySet Name="AccountTypes" EntityType="InternetBankingModel.AccountType" />
           <AssociationSet Name="FK_Accounts_AccountType" Association="InternetBankingModel.FK_Accounts_AccountType">
             <End Role="AccountType" EntitySet="AccountTypes" />
             <End Role="Accounts" EntitySet="Accounts" />
           </AssociationSet>
+          <AssociationSet Name="FK_AdditionalUserData_Accounts" Association="InternetBankingModel.FK_AdditionalUserData_Accounts">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="AdditionalUserData" EntitySet="AdditionalUserData" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AdditionalUserData">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="UserId" Type="Guid" Nullable="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -1888,7 +1886,7 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
           <Property Name="IdentificationNumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="PassportNumber" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="IsTemporary" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="aspnet_Users" Relationship="InternetBankingModel.FK_AdditionalUserData_Accounts1" FromRole="AdditionalUserData" ToRole="aspnet_Users" />
+          <NavigationProperty Name="aspnet_Users" Relationship="InternetBankingModel.FK_AdditionalUserData_Accounts" FromRole="AdditionalUserData" ToRole="aspnet_Users" />
         </EntityType>
         <EntityType Name="aspnet_Applications">
           <Key>
@@ -2013,7 +2011,7 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
           <NavigationProperty Name="aspnet_Profile" Relationship="InternetBankingModel.FK__aspnet_Pr__UserI__38996AB5" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
           <NavigationProperty Name="aspnet_Roles" Relationship="InternetBankingModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
           <NavigationProperty Name="Accounts" Relationship="InternetBankingModel.FK_Accounts_aspnet_Users" FromRole="aspnet_Users" ToRole="Accounts" />
-          <NavigationProperty Name="AdditionalUserData" Relationship="InternetBankingModel.FK_AdditionalUserData_Accounts1" FromRole="aspnet_Users" ToRole="AdditionalUserData" />
+          <NavigationProperty Name="AdditionalUserData" Relationship="InternetBankingModel.FK_AdditionalUserData_Accounts" FromRole="aspnet_Users" ToRole="AdditionalUserData" />
         </EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
           <Key>
@@ -2727,18 +2725,6 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_AdditionalUserData_Accounts1">
-          <End Type="InternetBankingModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
-          <End Type="InternetBankingModel.AdditionalUserData" Role="AdditionalUserData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="AdditionalUserData">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="AccountType">
           <Key>
             <PropertyRef Name="AccountTypeId" />
@@ -2759,6 +2745,18 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_AdditionalUserData_Accounts">
+          <End Type="InternetBankingModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="InternetBankingModel.AdditionalUserData" Role="AdditionalUserData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AdditionalUserData">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2768,7 +2766,6 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
           <EntitySetMapping Name="AdditionalUserData">
             <EntityTypeMapping TypeName="InternetBankingModel.AdditionalUserData">
               <MappingFragment StoreEntitySet="AdditionalUserData">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

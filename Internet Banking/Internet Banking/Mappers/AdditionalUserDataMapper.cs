@@ -32,7 +32,6 @@ namespace Internet_Banking.Mappers
         {
             var user = new AdditionalUserData
             {
-                Id = userData.UserId,
                 UserId = userData.UserId,
                 LastName = userData.LastName,
                 FirstName = userData.FirstName,
