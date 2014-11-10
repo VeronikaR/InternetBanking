@@ -1,48 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Internet_Banking.Models;
-using Internet_Banking.Services.Implements;
-using Internet_Banking.Services.Interfaces;
+using InternetBankingDal;
+using InternetBankingDal.Providers.Implements;
 
 namespace Internet_Banking.Controllers
 {
     public class AccountsController : Controller
     {
-        private IAccountsService _accountsService;
-        public AccountsController()
-        {
-            _accountsService = new AccountsService();
-        }
+        private readonly GenericDataRepository<Accounts> _repositoryAccounts = new GenericDataRepository<Accounts>();
+        
         //
         // GET: /Accounts/
 
         public ActionResult Index()
         {
-            var membershipUser = Membership.GetUser(User.Identity.Name, true);
-            var id = new Guid();
-            if (membershipUser != null)
+            var membershipUser = Membership.GetUser();
+            if (membershipUser != null && membershipUser.ProviderUserKey != null)
             {
-                var providerUserKey = membershipUser.ProviderUserKey;
-                if (providerUserKey != null)
-                {
-                    id = (Guid) providerUserKey;
-                }
+                IList<Accounts> accounts = _repositoryAccounts.GetList(c => c.UserId.Equals((Guid)membershipUser.ProviderUserKey), c => c.Cards, c => c.AccountType);
+                return View(accounts);
             }
-            List<SummaryAccountsModel> zxc = _accountsService.GetAccounts(id);
-            List<SummaryAccountsModel> model = _accountsService.GetAccounts(id);
-            return View(model);
+            return View();
         }
 
         //
         // GET: /Accounts/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            
+            return View(_repositoryAccounts.GetSingle(a => a.AccountId == id, a => a.AccountType ,  a => a.Cards));
         }
 
         //

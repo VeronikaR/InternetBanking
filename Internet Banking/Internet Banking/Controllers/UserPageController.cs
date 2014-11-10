@@ -24,12 +24,16 @@ namespace Internet_Banking.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
        {
+
             if (ModelState.IsValid && Membership.ValidateUser(model.UserName, model.Password))
             {
                 FormsAuthentication.SetAuthCookie(model.UserName, false);
                 return RedirectToLocal(returnUrl);
             }
-
+            var membershipUser = Membership.GetUser();
+            if (membershipUser != null && membershipUser.IsLockedOut)
+                ModelState.AddModelError("", "Пользователь заблокирован.");
+            else
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);

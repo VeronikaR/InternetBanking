@@ -1,0 +1,78 @@
+﻿@model InternetBankingDal.Credit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Credit</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Accounts.Number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Accounts.Number)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Number)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NextPayDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NextPayDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SetCreditLimit)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SetCreditLimit)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaxCreditLimit)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaxCreditLimit)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndAmmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndAmmount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreditPayments.CreditPaymentId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreditPayments.CreditPaymentId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.CreditId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

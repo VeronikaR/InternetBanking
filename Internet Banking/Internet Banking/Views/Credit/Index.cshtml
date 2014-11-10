@@ -1,0 +1,81 @@
+﻿@model IEnumerable<InternetBankingDal.Credit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Accounts.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextPayDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SetCreditLimit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxCreditLimit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndAmmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditPayments.CreditPaymentId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accounts.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextPayDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SetCreditLimit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxCreditLimit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndAmmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditPayments.CreditPaymentId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CreditId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CreditId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CreditId })
+        </td>
+    </tr>
+}
+
+</table>

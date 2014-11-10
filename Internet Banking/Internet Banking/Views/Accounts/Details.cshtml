@@ -1,8 +1,9 @@
-﻿@model Internet_Banking.Models.AccountDetailModel
+﻿@model InternetBankingDal.Accounts
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Детальная информация по счету";
 }
+
 
 <h2>Details</h2>
 
@@ -10,55 +11,51 @@
     <legend>AccountDetailModel</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.AccountId)
+         @Html.DisplayNameFor(model => model.AccountType)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.AccountId)
+        @Html.DisplayFor(model => model.AccountType.Name)
     </div>
-
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Type)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Type)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Number)
+        @Html.DisplayNameFor(model => model.Number)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Number)
     </div>
-
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Ammount)
+        @Html.DisplayNameFor(model => model.Ammount)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Ammount)
     </div>
-
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Currency)
+        @Html.DisplayNameFor(model => model.Currency)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Currency)
     </div>
-
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.StartDate)
+        @Html.DisplayNameFor(model => model.Cards)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cards.Count)
+    </div>
+    
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.StartDate)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.StartDate)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.OverdraftLimit)
+        @Html.DisplayNameFor(model => model.OverdraftLimit)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.OverdraftLimit)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+   @* @Html.ActionLink("Edit", "Edit", new { id = Model.AccountId }) |*@
+    @Html.ActionLink("Назад к спику", "Index")
 </p>

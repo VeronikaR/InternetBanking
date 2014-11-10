@@ -1,27 +1,24 @@
-﻿@model IEnumerable<Internet_Banking.Models.SummaryAccountsModel>
+﻿@model IEnumerable<InternetBankingDal.Accounts>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Мои счета";
 }
 
-<h2>Index</h2>
+<h2>Мои счета</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   @* @Html.ActionLink("Создать счет", "Create")*@
 </p>
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AccountId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
+            @Html.DisplayNameFor(model => model.AccountType)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Number)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActiveCard)
+            @Html.DisplayNameFor(model => model.Cards)
         </th>
         <th></th>
     </tr>
@@ -29,21 +26,25 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.AccountId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
+            @Html.DisplayFor(modelItem => item.AccountType.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Number)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ActiveCard)
+            @if (item.Cards.Count >= 0)
+            {
+                @Html.DisplayFor(modelItem => item.Cards.Count)
+            }
+            else
+            {
+                @Html.DisplayName("Нет карт")
+            }
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+          @*  @Html.ActionLink("Edit", "Edit", new {  id=item.AccountId }) |*@
+            @Html.ActionLink("Подробнее", "Details", new { id = item.AccountId })
+          @*  @Html.ActionLink("Delete", "Delete", new { id=item.AccountId })*@
         </td>
     </tr>
 }

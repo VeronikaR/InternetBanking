@@ -23,7 +23,7 @@ namespace Internet_Banking.Mappers
                 Nationality = userData.Nationality,
                 IdentificationNumber = userData.IdentificationNumber,
                 PassportNumber = userData.PassportNumber,
-                Password = user.GetPassword()
+                //Password = user.GetPassword()
             };
             return model;
         }

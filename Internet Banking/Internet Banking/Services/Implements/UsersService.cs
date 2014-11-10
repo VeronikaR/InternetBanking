@@ -39,10 +39,11 @@ namespace Internet_Banking.Services.Implements
         {
             model.Password = GeneratePassword();
 
-            Membership.CreateUser(model.UserName, model.Password);
+            //Membership.CreateUser(model.UserName, model.Password);
             MembershipUser membershipUser = Membership.GetUser(model.UserName);
             if (membershipUser == null)
             {
+                Membership.CreateUser(model.UserName, model.Password);
                 return false;
             }
 

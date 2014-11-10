@@ -1,0 +1,93 @@
+﻿@model IEnumerable<InternetBankingDal.Deposit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ammount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartAmmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Currency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Accounts.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CallbackAccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AutoContinue)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ammount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartAmmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Currency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InterestRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accounts.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CallbackAccountId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AutoContinue)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DepositId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DepositId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DepositId })
+        </td>
+    </tr>
+}
+
+</table>

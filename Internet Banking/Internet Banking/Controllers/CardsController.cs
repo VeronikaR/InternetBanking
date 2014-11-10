@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using InternetBankingDal;
+using InternetBankingDal.Providers.Implements;
 
 namespace Internet_Banking.Controllers
 {
     public class CardsController : Controller
     {
-        private InternetBankingEntities db = new InternetBankingEntities();
+        private readonly GenericDataRepository<Cards> _repositoryCards = new GenericDataRepository<Cards>();
+        private readonly InternetBankingEntities _db = new InternetBankingEntities();
 
         //
         // GET: /Cards/
 
         public ActionResult Index()
         {
-            var cards = db.Cards.Include(c => c.Accounts);
-            return View(cards.ToList());
+            var membershipUser = Membership.GetUser();
+            if (membershipUser != null && membershipUser.ProviderUserKey != null)
+            {
+                IList<Cards> cards = _repositoryCards.GetList(c => c.Accounts.UserId.Equals((Guid) membershipUser.ProviderUserKey), c => c.Accounts.AccountType);
+                return View(cards);
+            }
+            return View();
         }
 
         //
@@ -27,12 +32,7 @@ namespace Internet_Banking.Controllers
 
         public ActionResult Details(Guid id)
         {
-            Cards cards = db.Cards.Find(id);
-            if (cards == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cards);
+            return View(_repositoryCards.GetSingle(a => a.CardId == id, a => a.Accounts.AccountType));
         }
 
         //
@@ -40,7 +40,7 @@ namespace Internet_Banking.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "Number");
+            ViewBag.AccountId = new SelectList(_db.Accounts, "AccountId", "Number");
             return View();
         }
 
@@ -54,12 +54,12 @@ namespace Internet_Banking.Controllers
             if (ModelState.IsValid)
             {
                 cards.CardId = Guid.NewGuid();
-                db.Cards.Add(cards);
-                db.SaveChanges();
+                _db.Cards.Add(cards);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "Number", cards.AccountId);
+            ViewBag.AccountId = new SelectList(_db.Accounts, "AccountId", "Number", cards.AccountId);
             return View(cards);
         }
 
@@ -68,12 +68,12 @@ namespace Internet_Banking.Controllers
 
         public ActionResult Edit(Guid id)
         {
-            Cards cards = db.Cards.Find(id);
+            Cards cards = _db.Cards.Find(id);
             if (cards == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "Number", cards.AccountId);
+            ViewBag.AccountId = new SelectList(_db.Accounts, "AccountId", "Number", cards.AccountId);
             return View(cards);
         }
 
@@ -86,11 +86,11 @@ namespace Internet_Banking.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cards).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(cards).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "Number", cards.AccountId);
+            ViewBag.AccountId = new SelectList(_db.Accounts, "AccountId", "Number", cards.AccountId);
             return View(cards);
         }
 
@@ -99,7 +99,7 @@ namespace Internet_Banking.Controllers
 
         public ActionResult Delete(Guid id)
         {
-            Cards cards = db.Cards.Find(id);
+            Cards cards = _db.Cards.Find(id);
             if (cards == null)
             {
                 return HttpNotFound();
@@ -114,15 +114,15 @@ namespace Internet_Banking.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Cards cards = db.Cards.Find(id);
-            db.Cards.Remove(cards);
-            db.SaveChanges();
+            Cards cards = _db.Cards.Find(id);
+            _db.Cards.Remove(cards);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            _db.Dispose();
             base.Dispose(disposing);
         }
     }

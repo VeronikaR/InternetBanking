@@ -1,0 +1,50 @@
+﻿@model InternetBankingDal.Payments
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Payments</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OperationId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OperationId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentCompanies.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentCompanies.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyClientIdentity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyClientIdentity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Inforamation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Inforamation)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -182,6 +182,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\CreditController.cs" />
+    <Compile Include="Controllers\DepositController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CardsController.cs" />
@@ -197,11 +200,7 @@
     <Compile Include="Models\AdditionalUserDataModel.cs" />
     <Compile Include="Models\CardsModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Implements\AccountsService.cs" />
-    <Compile Include="Services\Implements\CardsService.cs" />
     <Compile Include="Services\Implements\UsersService.cs" />
-    <Compile Include="Services\Interfaces\IAccountsService.cs" />
-    <Compile Include="Services\Interfaces\ICardsService.cs" />
     <Compile Include="Services\Interfaces\IUsersService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +322,21 @@
     <Content Include="Views\Accounts.cshtml" />
     <Content Include="Views\Accounts\Index.cshtml" />
     <Content Include="Views\Accounts\Details.cshtml" />
+    <Content Include="Views\Credit\Index.cshtml" />
+    <Content Include="Views\Credit\Details.cshtml" />
+    <Content Include="Views\Credit\Create.cshtml" />
+    <Content Include="Views\Credit\Edit.cshtml" />
+    <Content Include="Views\Credit\Delete.cshtml" />
+    <Content Include="Views\Deposit\Index.cshtml" />
+    <Content Include="Views\Deposit\Details.cshtml" />
+    <Content Include="Views\Deposit\Create.cshtml" />
+    <Content Include="Views\Deposit\Edit.cshtml" />
+    <Content Include="Views\Deposit\Delete.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Payment\Details.cshtml" />
+    <Content Include="Views\Payment\Create.cshtml" />
+    <Content Include="Views\Payment\Edit.cshtml" />
+    <Content Include="Views\Payment\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,68 @@
+﻿@model InternetBankingDal.Payments
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Payments</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PaymentId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PaymentId)
+            @Html.ValidationMessageFor(model => model.PaymentId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OperationId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OperationId)
+            @Html.ValidationMessageFor(model => model.OperationId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PaymentCompanyId, "PaymentCompanies")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PaymentCompanyId", String.Empty)
+            @Html.ValidationMessageFor(model => model.PaymentCompanyId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CompanyClientIdentity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CompanyClientIdentity)
+            @Html.ValidationMessageFor(model => model.CompanyClientIdentity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Inforamation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Inforamation)
+            @Html.ValidationMessageFor(model => model.Inforamation)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
