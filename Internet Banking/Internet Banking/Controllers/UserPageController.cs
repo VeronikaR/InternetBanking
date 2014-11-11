@@ -30,12 +30,10 @@ namespace Internet_Banking.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            bool isTemp;
             if (ModelState.IsValid && Membership.ValidateUser(model.UserName, model.Password))
             {
                 if (_repositoryUser.GetSingle(x => x.UserId == (Guid) Membership.GetUser(model.UserName).ProviderUserKey).IsTemporary)
-                    return RedirectToAction("CreatePassword", "UserPage", new { oldPassword = model.Password });
-                //if(Membership.GetUser(model.UserName).ProviderUserKey)
+                    return View("CreatePassword", new CreatePasswordModel() { UserName = model.UserName });
                 FormsAuthentication.SetAuthCookie(model.UserName, false);
                 return RedirectToLocal(returnUrl);
             }
@@ -144,8 +142,9 @@ namespace Internet_Banking.Controllers
         }
         //
         // GET: /User/CreatePassword
-        public ActionResult CreatePassword(ManageMessageId? message)
+        public ActionResult CreatePassword(ManageMessageId? message, string userName)
         {
+            ViewBag.UserName = userName;
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
@@ -160,17 +159,19 @@ namespace Internet_Banking.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreatePassword(CreatePasswordModel model, string oldPassword)
+        [AllowAnonymous]
+        public ActionResult CreatePassword(CreatePasswordModel model)
         {
-            ViewBag.ReturnUrl = Url.Action("Manage");
             if (ModelState.IsValid)
             {
+                var user = Membership.GetUser(model.UserName);
                 // ChangePassword will throw an exception rather than return false in certain failure scenarios.
                 bool changePasswordSucceeded;
                 try
                 {
-                    changePasswordSucceeded = Membership.Provider.ChangePassword(User.Identity.Name, oldPassword,
-                        model.NewPassword);
+// ReSharper disable once PossibleNullReferenceException
+                    changePasswordSucceeded = user.ChangePassword(user.ResetPassword(), model.NewPassword);
+                    //Membership.Provider.ChangePassword(User.Identity.Name, oldPassword, model.NewPassword);
                 }
                 catch (Exception)
                 {
@@ -179,11 +180,17 @@ namespace Internet_Banking.Controllers
 
                 if (changePasswordSucceeded)
                 {
-                    return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
+
+                    var userData =
+                        _repositoryUser.GetSingle(
+                            x => user.ProviderUserKey != null && x.UserId == (Guid) user.ProviderUserKey);
+                    userData.IsTemporary = false;
+                    _repositoryUser.Update(userData);
+                    return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
             }
-
              //If we got this far, something failed, redisplay form
             return View(model);
         }
