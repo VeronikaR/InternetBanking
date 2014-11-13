@@ -338,6 +338,8 @@
     <Content Include="Views\Payment\Edit.cshtml" />
     <Content Include="Views\Payment\Delete.cshtml" />
     <Content Include="Views\UserPage\CreatePassword.cshtml" />
+    <Content Include="Views\Admin\CreateAccount.cshtml" />
+    <Content Include="Views\Admin\CreateCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

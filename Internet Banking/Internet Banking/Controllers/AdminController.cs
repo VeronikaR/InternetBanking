@@ -62,6 +62,51 @@ namespace Internet_Banking.Controllers
         {
             return View();
         }
+        public ActionResult CreateAccount()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Accounts/Create
+
+        [HttpPost]
+        public ActionResult CreateAccount(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Dashboard");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult CreateCard()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Accounts/Create
+
+        [HttpPost]
+        public ActionResult CreateCard(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Dashboard");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         #endregion
     }
 }
