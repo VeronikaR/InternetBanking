@@ -11,7 +11,7 @@ namespace Internet_Banking.Models
     public class UsersContext : DbContext
     {
         public UsersContext()
-            : base("DefaultConnection")
+            : base("InternetBanking")
         {
         }
 

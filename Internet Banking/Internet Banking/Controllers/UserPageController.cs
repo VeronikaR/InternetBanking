@@ -32,7 +32,8 @@ namespace Internet_Banking.Controllers
         {
             if (ModelState.IsValid && Membership.ValidateUser(model.UserName, model.Password))
             {
-                if (_repositoryUser.GetSingle(x => x.UserId == (Guid) Membership.GetUser(model.UserName).ProviderUserKey).IsTemporary)
+                var userData = _repositoryUser.GetSingle(x => x.UserId == (Guid)Membership.GetUser(model.UserName).ProviderUserKey);
+                if (userData != null && userData.IsTemporary)
                     return View("CreatePassword", new CreatePasswordModel() { UserName = model.UserName });
                 FormsAuthentication.SetAuthCookie(model.UserName, false);
                 return RedirectToLocal(returnUrl);
