@@ -11,6 +11,7 @@ namespace InternetBankingDal
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Cards
     {
@@ -21,13 +22,21 @@ namespace InternetBankingDal
     
         public System.Guid CardId { get; set; }
         public System.Guid AccountId { get; set; }
+        [Display(Name = "Название карты")]
         public string Name { get; set; }
+        [CreditCard]
+        [Display(Name = "Номер карты")]
         public string Number { get; set; }
+        [Display(Name = "ФИ держателя")]
         public string UserSignature { get; set; }
+        [Display(Name = "Дата выпуска")]
         public System.DateTime StartDate { get; set; }
+        [Display(Name = "Срок окончания действия")]
         public System.DateTime EndDate { get; set; }
+        [Display(Name = "Статус карты")]
         public int State { get; set; }
-    
+
+        [Display(Name = "Счет")]
         public virtual Accounts Accounts { get; set; }
         public virtual ICollection<CardOperations> CardOperations { get; set; }
     }

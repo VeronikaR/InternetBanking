@@ -8,16 +8,17 @@
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary()
 
     <fieldset>
         <legend>Cards</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.AccountId, "Accounts")
+            @Html.LabelFor(model => model.Accounts, "Accounts")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("AccountId", String.Empty)
+           @* @Html.DropDownList("AccountId", String.Empty)*@
+            @Html.EditorFor(model => model.Accounts)
             @Html.ValidationMessageFor(model => model.AccountId)
         </div>
 

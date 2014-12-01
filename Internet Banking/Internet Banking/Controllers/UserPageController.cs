@@ -101,7 +101,7 @@ namespace Internet_Banking.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                message == ManageMessageId.ChangePasswordSuccess ? "Ваш пароль был изменен."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : "";
@@ -135,7 +135,7 @@ namespace Internet_Banking.Controllers
                 {
                     return RedirectToAction("Manage", new {Message = ManageMessageId.ChangePasswordSuccess});
                 }
-                ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                ModelState.AddModelError("", "Пароли введены некорректно.");
             }
             
             // If we got this far, something failed, redisplay form
@@ -147,8 +147,8 @@ namespace Internet_Banking.Controllers
         {
             ViewBag.UserName = userName;
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                message == ManageMessageId.ChangePasswordSuccess ? "Ваш пароль был изменен."
+                : message == ManageMessageId.SetPasswordSuccess ? "Ваш пароль успешно установлен."
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : "";
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -167,19 +167,19 @@ namespace Internet_Banking.Controllers
             {
                 var user = Membership.GetUser(model.UserName);
                 // ChangePassword will throw an exception rather than return false in certain failure scenarios.
-                bool changePasswordSucceeded;
+                bool setPasswordSuccess;
                 try
                 {
 // ReSharper disable once PossibleNullReferenceException
-                    changePasswordSucceeded = user.ChangePassword(user.ResetPassword(), model.NewPassword);
+                    setPasswordSuccess = user.ChangePassword(user.ResetPassword(), model.NewPassword);
                     //Membership.Provider.ChangePassword(User.Identity.Name, oldPassword, model.NewPassword);
                 }
                 catch (Exception)
                 {
-                    changePasswordSucceeded = false;
+                    setPasswordSuccess = false;
                 }
 
-                if (changePasswordSucceeded)
+                if (setPasswordSuccess)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
 
@@ -190,7 +190,7 @@ namespace Internet_Banking.Controllers
                     _repositoryUser.Update(userData);
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                ModelState.AddModelError("", "Пароли введены некорректно.");
             }
              //If we got this far, something failed, redisplay form
             return View(model);

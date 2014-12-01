@@ -45,10 +45,11 @@
             @Html.DisplayFor(modelItem => item.UserSignature)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.State)
+            @Html.DisplayName(new InternetBankingDal.EnumHelper().GetDisplayName((InternetBankingDal.CardState)item.State).ToString())
         </td>
+        
         <td>
-            @*@Html.ActionLink("Редактировать", "Edit", new {id = item.CardId}) |*@
+        @*@Html.ActionLink("Редактировать", "Edit", new {id = item.CardId}) |*@
             @Html.ActionLink("Подробнее", "Details", new {id = item.CardId}) 
             @*@Html.ActionLink("Удалить", "Delete", new {id = item.CardId})*@
         </td>

@@ -184,6 +184,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CreditController.cs" />
     <Compile Include="Controllers\DepositController.cs" />
+    <Compile Include="Controllers\myController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\UserPageController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -340,6 +341,12 @@
     <Content Include="Views\UserPage\CreatePassword.cshtml" />
     <Content Include="Views\Admin\CreateAccount.cshtml" />
     <Content Include="Views\Admin\CreateCard.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\my\Index.cshtml" />
+    <Content Include="Views\my\Details.cshtml" />
+    <Content Include="Views\my\Create.cshtml" />
+    <Content Include="Views\my\Edit.cshtml" />
+    <Content Include="Views\my\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

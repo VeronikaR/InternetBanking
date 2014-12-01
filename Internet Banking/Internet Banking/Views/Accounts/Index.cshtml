@@ -20,6 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Cards)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActiveCard)
+        </th>
         <th></th>
     </tr>
     
@@ -40,6 +43,9 @@
             {
                 @Html.DisplayName("Нет карт")
             }
+        </td>
+        <td>
+            @Html.CheckBoxFor(modelItem => item.ActiveCard)
         </td>
         <td>
           @*  @Html.ActionLink("Edit", "Edit", new {  id=item.AccountId }) |*@

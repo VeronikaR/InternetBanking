@@ -4,7 +4,7 @@
     ViewBag.Title = "CreateCard";
 }
 
-<h2>CreateCard</h2>
+<h2>Добавить карту</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -14,18 +14,10 @@
         <legend>Cards</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CardId)
+            @Html.LabelFor(model => model.AccountId, "Счет")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.CardId)
-            @Html.ValidationMessageFor(model => model.CardId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.AccountId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.AccountId)
+            @Html.DropDownList("AccountId", String.Empty)
             @Html.ValidationMessageFor(model => model.AccountId)
         </div>
 
@@ -69,16 +61,22 @@
             @Html.ValidationMessageFor(model => model.EndDate)
         </div>
 
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.State)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.State)
             @Html.ValidationMessageFor(model => model.State)
+        </div>*@
+        <div class="editor-label">
+            @Html.LabelFor(model => model.State)
         </div>
-
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.State, ViewBag.CardStatus as SelectList)
+            @Html.ValidationMessageFor(model => model.State)
+        </div>
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Создать" />
         </p>
     </fieldset>
 }

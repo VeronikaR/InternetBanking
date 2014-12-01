@@ -13,13 +13,13 @@ namespace Internet_Banking.Controllers
             ViewBag.Message = " ЗАО 'Мир Веб технологий'.";
             return View();
         }
-
+        [AllowAnonymous]
         public ActionResult About()
         {
             ViewBag.Message = "Страница о нас.";
             return View();
         }
-
+        [AllowAnonymous]
         public ActionResult Contact()
         {
             ViewBag.Message = "Страница контактов.";

@@ -35,7 +35,7 @@ namespace Internet_Banking.Models
         public string MiddleName { get; set; }
 
         [Required]
-        [Display(Name = "Дата рождения (формат даты dd.mm.yyyy):")]
+        [Display(Name = "Дата рождения (формат даты дд.мм.гггг):")]
         public String BirthDate { get; set; }
 
         [Required]
