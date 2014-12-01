@@ -11,6 +11,7 @@ namespace InternetBankingDal
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class AccountType
     {
@@ -20,6 +21,7 @@ namespace InternetBankingDal
         }
     
         public int AccountTypeId { get; set; }
+        [Display(Name = "Вид счета")]
         public string Name { get; set; }
     
         public virtual ICollection<Accounts> Accounts { get; set; }

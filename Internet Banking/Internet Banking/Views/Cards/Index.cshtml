@@ -5,11 +5,13 @@
 }
 
 <h2>Мои карты</h2>
+<hr/>
 
 <p>
    @* @Html.ActionLink("Создать", "Create")*@
 </p>
-<table>
+<table class="table">
+    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -28,6 +30,7 @@
         </th>
         <th></th>
    </tr>
+   </thead>
 
 @foreach (var item in Model)
 {
@@ -45,7 +48,7 @@
             @Html.DisplayFor(modelItem => item.UserSignature)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.State)
+            @Html.DisplayName(new InternetBankingDal.EnumHelper().GetDisplayName((InternetBankingDal.CardState)item.State).ToString())
         </td>
         <td>
             @*@Html.ActionLink("Редактировать", "Edit", new {id = item.CardId}) |*@

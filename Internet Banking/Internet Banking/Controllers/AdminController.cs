@@ -11,6 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.ComponentModel.DataAnnotations;
 
 namespace Internet_Banking.Controllers
 {
@@ -18,7 +19,7 @@ namespace Internet_Banking.Controllers
     {
         private readonly IUsersService _userService;
         private readonly GenericDataRepository<AdditionalUserData> _repositoryUser = new GenericDataRepository<AdditionalUserData>();
-
+        private InternetBankingEntities db = new InternetBankingEntities();
         public AdminController()
         {
             _userService = new UsersService();
@@ -62,6 +63,87 @@ namespace Internet_Banking.Controllers
         {
             return View();
         }
+        public ActionResult CreateAccount()
+        {
+            ViewBag.UserId = new SelectList(db.aspnet_Users, "UserId", "UserName");
+            ViewBag.Type = new SelectList(db.AccountTypes, "AccountTypeId", "Name");
+            return View();
+        }
+
+        //
+        // POST: /Accounts/Create
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateAccount(Accounts accounts)
+        {
+            try
+            {
+                var minTime = DateTime.Parse("01.01.1753");
+                var maxTime = DateTime.MaxValue;
+                if (accounts.StartDate > maxTime || accounts.StartDate < minTime)
+                    ModelState.AddModelError("", "StartDate Дата вне диапазона.");
+                if (ModelState.IsValid)
+                {
+                    accounts.AccountId = Guid.NewGuid();
+                    db.Accounts.Add(accounts);
+                    db.SaveChanges(); 
+                    return RedirectToAction("Dashboard");
+                }
+
+                ViewBag.UserId = new SelectList(db.aspnet_Users, "UserId", "UserName", accounts.UserId);
+                ViewBag.Type = new SelectList(db.AccountTypes, "AccountTypeId", "Name", accounts.Type);
+                return View(accounts);
+
+               
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult CreateCard()
+        {
+            ViewBag.CardStatus = new EnumHelper().SelectList;
+            ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "Number");
+            return View();
+        }
+
+        //
+        // POST: /Accounts/Create
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateCard(Cards cards)
+        {
+            try
+            {
+                var minTime = DateTime.Parse("01.01.1753");
+                var maxTime = DateTime.MaxValue;
+                if (cards.EndDate > maxTime || cards.EndDate < minTime)
+                    ModelState.AddModelError("", "EndDate Дата вне диапазона.");
+                if (cards.StartDate > maxTime || cards.StartDate < minTime)
+                    ModelState.AddModelError("", "StartDate Дата вне диапазона.");
+                if (ModelState.IsValid)
+                {
+                    cards.CardId = Guid.NewGuid();
+                    db.Cards.Add(cards);
+                    db.SaveChanges();
+                    return RedirectToAction("Dashboard");
+                }
+                var states = from CardState s in Enum.GetValues(typeof(CardState))
+                             select new { ID = (int)s, Name = s.ToString() };
+                ViewBag.CardStatus = new SelectList(states, "State", "Name", cards.State);
+                ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "Number", cards.AccountId);
+                return View(cards);
+
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         #endregion
     }
 }

@@ -10,19 +10,19 @@ namespace Internet_Banking.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = " ЗАО 'Мир Веб технологий'.";
+            int hour = DateTime.Now.Hour;
+            ViewBag.Greeting = hour < 12 ? "Доброе утро" : (hour < 18 ? "Добрый день" : "Добрый вечер");
             return View();
         }
-
+        [AllowAnonymous]
         public ActionResult About()
         {
-            ViewBag.Message = "Страница о нас.";
+            //ViewBag.Message = "О нас";
             return View();
         }
-
+        [AllowAnonymous]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Страница контактов.";
             return View();
         }
     }

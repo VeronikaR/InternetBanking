@@ -1,15 +1,17 @@
 ﻿@model IEnumerable<InternetBankingDal.Payments>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Платежи";
 }
 
-<h2>Index</h2>
+<h2>Платежи</h2>
+<hr/>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+<table class="table">
+    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.PaymentId)
@@ -28,6 +30,7 @@
         </th>
         <th></th>
     </tr>
+    </thead>
 
 @foreach (var item in Model) {
     <tr>

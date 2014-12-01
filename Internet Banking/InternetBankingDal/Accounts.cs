@@ -11,7 +11,8 @@ namespace InternetBankingDal
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Accounts
     {
         public Accounts()
@@ -22,22 +23,32 @@ namespace InternetBankingDal
             this.Deposit = new HashSet<Deposit>();
             this.PaymentCompanies = new HashSet<PaymentCompanies>();
         }
-    
+        [Display(Name = "Активная карта:")]
+        public bool ActiveCard { get; set; }
         public System.Guid AccountId { get; set; }
         public System.Guid UserId { get; set; }
+
+        [Display(Name = "Номер счета")]
         public string Number { get; set; }
+        [Display(Name = "Название счета")]
         public int Type { get; set; }
+        [Display(Name = "Доступный остаток на счете")]
         public decimal Ammount { get; set; }
+        [Display(Name = "Валюта")]
         public int Currency { get; set; }
+        [Display(Name = "Дата открытия")]
         public System.DateTime StartDate { get; set; }
+        [Display(Name = "Установленный лимит овердрафта")]
         public Nullable<decimal> OverdraftLimit { get; set; }
-    
+
+        [Display(Name = "Карты, привязанные к этому счету")]
         public virtual ICollection<Cards> Cards { get; set; }
         public virtual ICollection<ClientRemittances> ClientRemittances { get; set; }
         public virtual ICollection<Credit> Credit { get; set; }
         public virtual ICollection<Deposit> Deposit { get; set; }
         public virtual ICollection<PaymentCompanies> PaymentCompanies { get; set; }
         public virtual aspnet_Users aspnet_Users { get; set; }
+        [Display(Name = "Вид счета")]
         public virtual AccountType AccountType { get; set; }
     }
 }

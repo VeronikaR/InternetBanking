@@ -5,12 +5,16 @@
 }
 
 <h2>Мои счета</h2>
+<hr/>
 
 <p>
    @* @Html.ActionLink("Создать счет", "Create")*@
 </p>
-<table>
-    <tr>
+
+
+<table class="table">
+    <thead>
+        <tr>
         <th>
             @Html.DisplayNameFor(model => model.AccountType)
         </th>
@@ -21,7 +25,8 @@
             @Html.DisplayNameFor(model => model.Cards)
         </th>
         <th></th>
-    </tr>
+        </tr>
+    </thead>
     
 @foreach (var item in Model) {
     <tr>

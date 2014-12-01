@@ -1,27 +1,23 @@
-﻿@{
-    ViewBag.Title = "Главная. Интернет банкинг.";
+﻿@model Internet_Banking.Models.LoginModel
+@{
+    ViewBag.Title = "Главная страница";
 }
+
+@Styles.Render("~/Content/LoginStyle.css")
+
 @section featured {
     <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            
-        </div>
     </section>
 }
-<p>
-    @Html.ActionLink("Мои счета", "Index", "Accounts")
-    @Html.ActionLink("Мои карты", "Index", "Cards")
-    @Html.ActionLink("Мои кредиты", "Index", "Credit")
-    @Html.ActionLink("Мои депозиты", "Index", "Deposit")
 
-    @Html.ActionLink("Переводы?", "Index", "Accounts")
-
-    @Html.ActionLink("Платежи", "Index", "Payment")
-
-    @Html.ActionLink("Настройки?", "Index", "Cards")
-    @Html.ActionLink("Помощь?", "Index", "Cards")
+<p class="text-center pagination-left">
+    <br/>
+    @ViewBag.Greeting, @User.Identity.Name! Приветствуем вас на своём сайте!<br/><br/>
+    Интернет-банк «МБанк» — Вы в курсе всего, что касается Ваших денег.<br/><br/>
+    Это современный, удобный и практичный Интернет-банк с возможность<br/> 
+    проведения платежей и переводов через Интернет с максимальной скоростью и надежностью.<br/><br/>
+    С Интернет-банком «МБанк» Вам нет необходимости лично посещать<br/> 
+    отделение «МБанка», управляя своими счетами и осуществляя операции по финансам, находясь в любой точке мира.<br/><br/>
+    Интернет-банк «МБанк» — это простота и быстрота подключения к системе,<br/> 
+    отсутствие необходимости установки специального программного обеспечения, а также удобный интерфейс.<br/>
 </p>

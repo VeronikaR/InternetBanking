@@ -23,19 +23,18 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /User/Login
+        // POST: /UserPage/Login
 
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            bool isTemp;
             if (ModelState.IsValid && Membership.ValidateUser(model.UserName, model.Password))
             {
-                if (_repositoryUser.GetSingle(x => x.UserId == (Guid) Membership.GetUser(model.UserName).ProviderUserKey).IsTemporary)
-                    return RedirectToAction("CreatePassword", "UserPage", new { oldPassword = model.Password });
-                //if(Membership.GetUser(model.UserName).ProviderUserKey)
+                var userData = _repositoryUser.GetSingle(x => x.UserId == (Guid)Membership.GetUser(model.UserName).ProviderUserKey);
+                if (userData != null && userData.IsTemporary)
+                    return View("CreatePassword", new CreatePasswordModel() { UserName = model.UserName });
                 FormsAuthentication.SetAuthCookie(model.UserName, false);
                 return RedirectToLocal(returnUrl);
             }
@@ -44,12 +43,12 @@ namespace Internet_Banking.Controllers
                 ModelState.AddModelError("", "Пользователь заблокирован.");
             else
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                ModelState.AddModelError("", "Введен неверный логин или пароль. Для восстановления необходимо обратиться в отделение МБанка (при себе иметь паспорт).");
             return View(model);
         }
 
         //
-        // POST: /User/LogOff
+        // POST: /UserPage/LogOff
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -60,7 +59,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // GET: /User/Register
+        // GET: /UserPage/Register
 
         [AllowAnonymous]
         public ActionResult Register()
@@ -69,7 +68,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /User/Register
+        // POST: /UserPage/Register
 
         [HttpPost]
         [AllowAnonymous]
@@ -97,12 +96,12 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // GET: /User/Manage
+        // GET: /UserPage/Manage
 
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                message == ManageMessageId.ChangePasswordSuccess ? "Ваш пароль был изменен."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : "";
@@ -111,7 +110,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /User/Manage
+        // POST: /UserPage/Manage
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -136,19 +135,20 @@ namespace Internet_Banking.Controllers
                 {
                     return RedirectToAction("Manage", new {Message = ManageMessageId.ChangePasswordSuccess});
                 }
-                ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                ModelState.AddModelError("", "Пароли введены некорректно.");
             }
             
             // If we got this far, something failed, redisplay form
             return View(model);
         }
         //
-        // GET: /User/CreatePassword
-        public ActionResult CreatePassword(ManageMessageId? message)
+        // GET: /UserPage/CreatePassword
+        public ActionResult CreatePassword(ManageMessageId? message, string userName)
         {
+            ViewBag.UserName = userName;
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                message == ManageMessageId.ChangePasswordSuccess ? "Ваш пароль был изменен."
+                : message == ManageMessageId.SetPasswordSuccess ? "Ваш пароль успешно установлен."
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : "";
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -156,34 +156,42 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /User/CreatePassword
+        // POST: /UserPage/CreatePassword
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreatePassword(CreatePasswordModel model, string oldPassword)
+        [AllowAnonymous]
+        public ActionResult CreatePassword(CreatePasswordModel model)
         {
-            ViewBag.ReturnUrl = Url.Action("Manage");
             if (ModelState.IsValid)
             {
+                var user = Membership.GetUser(model.UserName);
                 // ChangePassword will throw an exception rather than return false in certain failure scenarios.
-                bool changePasswordSucceeded;
+                bool setPasswordSuccess;
                 try
                 {
-                    changePasswordSucceeded = Membership.Provider.ChangePassword(User.Identity.Name, oldPassword,
-                        model.NewPassword);
+// ReSharper disable once PossibleNullReferenceException
+                    setPasswordSuccess = user.ChangePassword(user.ResetPassword(), model.NewPassword);
+                    //Membership.Provider.ChangePassword(User.Identity.Name, oldPassword, model.NewPassword);
                 }
                 catch (Exception)
                 {
-                    changePasswordSucceeded = false;
+                    setPasswordSuccess = false;
                 }
 
-                if (changePasswordSucceeded)
+                if (setPasswordSuccess)
                 {
-                    return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
-                }
-                ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
-            }
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
 
+                    var userData =
+                        _repositoryUser.GetSingle(
+                            x => user.ProviderUserKey != null && x.UserId == (Guid) user.ProviderUserKey);
+                    userData.IsTemporary = false;
+                    _repositoryUser.Update(userData);
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("", "Пароли введены некорректно.");
+            }
              //If we got this far, something failed, redisplay form
             return View(model);
         }
