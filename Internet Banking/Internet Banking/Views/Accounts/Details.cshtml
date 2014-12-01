@@ -8,54 +8,54 @@
 <h2>Подробнее о счете</h2>
 
 <fieldset>
-    <legend>AccountDetailModel</legend>
+    <legend></legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AccountType)
+    <div class="display-label" style="color: Black;">
+        @Html.DisplayNameFor(model => model.AccountType)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.AccountType.Name)
     </div>
-    <div class="display-label">
+    <div class="display-label" style="color: Black;">
         @Html.DisplayNameFor(model => model.Number)
     </div>
-    <div class="display-field">
+    <div class="display-field" >
         @Html.DisplayFor(model => model.Number)
     </div>
-    <div class="display-label">
+    <div class="display-label" style="color: Black;">
         @Html.DisplayNameFor(model => model.Ammount)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Ammount)
     </div>
-    <div class="display-label">
+    <div class="display-label" style="color: Black;">
         @Html.DisplayNameFor(model => model.Currency)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Currency)
     </div>
-    <div class="display-label">
+    <div class="display-label" style="color: Black;">
         @Html.DisplayNameFor(model => model.Cards)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Cards.Count)
     </div>
     
-    <div class="display-label">
+    <div class="display-label" style="color: Black;">
         @Html.DisplayNameFor(model => model.StartDate)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.StartDate)
     </div>
 
-    <div class="display-label">
+    <div class="display-label" style="color: Black;">
         @Html.DisplayNameFor(model => model.OverdraftLimit)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.OverdraftLimit)
     </div>
 </fieldset>
-<p>
-   @* @Html.ActionLink("Edit", "Edit", new { id = Model.AccountId }) |*@
+<p style="color: Black;">
+    @* @Html.ActionLink("Edit", "Edit", new { id = Model.AccountId }) |*@
     @Html.ActionLink("Назад к спику", "Index")
 </p>

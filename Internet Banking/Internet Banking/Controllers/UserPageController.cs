@@ -23,7 +23,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /User/Login
+        // POST: /UserPage/Login
 
         [HttpPost]
         [AllowAnonymous]
@@ -43,12 +43,12 @@ namespace Internet_Banking.Controllers
                 ModelState.AddModelError("", "Пользователь заблокирован.");
             else
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                ModelState.AddModelError("", "Введен неверный логин или пароль. Для восстановления необходимо обратиться в отделение МБанка (при себе иметь паспорт).");
             return View(model);
         }
 
         //
-        // POST: /User/LogOff
+        // POST: /UserPage/LogOff
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -59,7 +59,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // GET: /User/Register
+        // GET: /UserPage/Register
 
         [AllowAnonymous]
         public ActionResult Register()
@@ -68,7 +68,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /User/Register
+        // POST: /UserPage/Register
 
         [HttpPost]
         [AllowAnonymous]
@@ -96,7 +96,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // GET: /User/Manage
+        // GET: /UserPage/Manage
 
         public ActionResult Manage(ManageMessageId? message)
         {
@@ -110,7 +110,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /User/Manage
+        // POST: /UserPage/Manage
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -142,7 +142,7 @@ namespace Internet_Banking.Controllers
             return View(model);
         }
         //
-        // GET: /User/CreatePassword
+        // GET: /UserPage/CreatePassword
         public ActionResult CreatePassword(ManageMessageId? message, string userName)
         {
             ViewBag.UserName = userName;
@@ -156,7 +156,7 @@ namespace Internet_Banking.Controllers
         }
 
         //
-        // POST: /User/CreatePassword
+        // POST: /UserPage/CreatePassword
 
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -5,12 +5,16 @@
 }
 
 <h2>Мои счета</h2>
+<hr/>
 
 <p>
    @* @Html.ActionLink("Создать счет", "Create")*@
 </p>
-<table>
-    <tr>
+
+
+<table class="table">
+    <thead>
+        <tr>
         <th>
             @Html.DisplayNameFor(model => model.AccountType)
         </th>
@@ -20,11 +24,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Cards)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ActiveCard)
-        </th>
         <th></th>
-    </tr>
+        </tr>
+    </thead>
     
 @foreach (var item in Model) {
     <tr>
@@ -43,9 +45,6 @@
             {
                 @Html.DisplayName("Нет карт")
             }
-        </td>
-        <td>
-            @Html.CheckBoxFor(modelItem => item.ActiveCard)
         </td>
         <td>
           @*  @Html.ActionLink("Edit", "Edit", new {  id=item.AccountId }) |*@

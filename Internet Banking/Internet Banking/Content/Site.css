@@ -90,7 +90,10 @@ h5, h6 {
         text-decoration: none;
     }
 
-
+    .display-label
+    {
+        background-color: red;
+    }
 /* main layout
 ----------------------------------------------------------*/
 .content-wrapper {
@@ -102,6 +105,7 @@ h5, h6 {
     background-color: #efeeef;
     clear: both;
     padding-bottom: 35px;
+    height: 100%;
 }
 
     .main-content {
@@ -413,7 +417,9 @@ fieldset {
         fieldset ol li {
             padding-bottom: 5px;
         }
-
+fieldset div.display-label{
+    color: red;
+}
 label {
     display: block;
     font-size: 1.2em;

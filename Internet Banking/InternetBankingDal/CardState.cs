@@ -16,7 +16,7 @@ namespace InternetBankingDal
         Locked = 1,
         [Display(Name = "Истек срок действия")]
         Expired = 2
-    
+
     }
     public class EnumHelper
     {
@@ -37,7 +37,7 @@ namespace InternetBankingDal
                 false);
             return ((DisplayAttribute)attributes[0]).Name;
         }
-        
+
     }
 
     //public static class EnumHelper

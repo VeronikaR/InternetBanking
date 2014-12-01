@@ -35,7 +35,7 @@ namespace Internet_Banking.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
+        [StringLength(100, ErrorMessage = "Длина должна быть более {2} символов.", MinimumLength = 8)]
         [DataType(DataType.Password)]
         [Display(Name = "Новый пароль")]
         public string NewPassword { get; set; }

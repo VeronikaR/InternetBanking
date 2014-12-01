@@ -1,56 +1,97 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="myhtml">
     <head>
         <meta charset="utf-8" />
-        <title>Интернет банкинг</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <title>@ViewBag.Title</title>
         <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Styles.Render("~/Content/themes/base/css", "~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/bootstrapcss")
+        @Styles.Render("~/Content/LoginStyle.css")
     </head>
-    <body>
+    <body id="mybody">
+
         <header>
             <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("МБанк", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    @if (Request.IsAuthenticated)
-                    { 
-                        <nav>
-                            <ul id="menu">
-                                <li>@Html.ActionLink("Главная", "Index", "Home")</li>
-                                <li>@Html.ActionLink("О нас", "About", "Home")</li>
-                                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
-                                @if(Roles.IsUserInRole("Admin")){
-                                    <li>@Html.ActionLink("Панель администрирования", "Dashboard", "Admin")</li>
-                                }
-                            </ul>
-                        </nav>
-                    }
-                </div>
+               <img src="~/Content/images/header1.jpg" width="100%"/> 
             </div>
         </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
+
+        <div class="container-fluid mycontainer">
+            <div class="row-fluid myrow">
+
+                 <div class="span2 myspan2">
+                     <div class="well sidebar-nav leftPanel">
+                     <ul class="nav nav-list">
+                     <li class="nav-header" style="font-size:14px">Интернет-банкинг</li>
+                     <li><a href="/Home/Index">Главная</a></li>
+                     <li class="nav-header" style="font-size:14px"> </li>
+                     @if (Request.IsAuthenticated)
+                     { 
+                         <li><a href="/Accounts">Счета</a></li>
+    	                 <li><a href="/Cards">Карты</a></li> 
+                         <li><a href="/Credit">Кредиты</a></li>
+                         <li><a href="/Deposit">Депозиты</a></li>
+    	                 <li><a href="#">Переводы</a></li>
+                         <li><a href="/Payment">Платежи</a></li>
+                         <li><a href="#">Настройки</a><span class="divider"></span></li>
+                         <li>@Html.ActionLink("О нас", "About", "Home")</li>
+                         <li>@Html.ActionLink("Контакты", "Contact", "Home")</li> 
+                         <li><a href="#">Помощь</a><span class="divider"></span></li>
+                         <li>@using (Html.BeginForm("LogOff", "UserPage", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()">Выход</a>
+                            }</li>
+                     }
+                     else
+                     {
+                        <li>@Html.ActionLink("О нас", "About", "Home")</li>
+                        <li>@Html.ActionLink("Контакты", "Contact", "Home")</li> 
+                        <li><a href="#">Помощь</a><span class="divider"/></li>
+                        <li>@Html.ActionLink("Вход","Login", "UserPage")</li>
+                     }
+                     </ul>
+                     </div>
+                 </div>
+             
+                 <div class="span8">
+                     @RenderSection("featured", required: false)
+                     <div class="row-fluid">
+                     @RenderBody()
+                     </div>
+                 </div>
+
+                 <div class="span2 myspan2">
+                     <div class="well sidebar-nav leftPanel">
+                     <ul class="nav nav-list">
+                     <li class="nav-header" style="font-size:14px">Быстрая навигация</li>
+                         @if(Roles.IsUserInRole("Admin")){
+                            <li>@Html.ActionLink("Панель администрирования", "Dashboard", "Admin")</li>
+                         }
+                         else {
+                             if (Request.IsAuthenticated) {
+                                <li>
+                                    @Html.ActionLink("Профиль "+User.Identity.Name, "Manage", "UserPage", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })
+                                </li>
+                             } else {
+                                 <li>@Html.ActionLink("Вход","Login", "UserPage")</li>
+                             }
+                         }
+                     </ul>
+                    </div>
+                 </div>
+
+            </div>
         </div>
+
+        <hr/>
         <footer>
             <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Internet Banking. ЗАО 'Мир Веб технологий'</p>
-                </div>
+                 <p class="text-center">&copy; @DateTime.Now.Year - ЗАО «Мир Веб-технологий». Все права защищены.</p>
             </div>
         </footer>
 
-        @RenderSection("scripts", required: false)
+         @Scripts.Render("~/bundles/jquery")
+         @Scripts.Render("~/bundles/bootstrapjs")
+         @RenderSection("scripts", required: false)
     </body>
 </html>

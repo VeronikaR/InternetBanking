@@ -1,0 +1,46 @@
+﻿body {
+    background-color: #EBF5FF;
+    color: #007AAB;
+    height: 100%;
+}
+
+.loginLabel {
+    font-size: 25px;
+}
+
+div.leftPanel {
+    height: 100%;
+}
+
+#myhtml, #mybody {
+    height: 100%;
+}
+
+div.mycontainer, .myrow, .myspan2 {
+    height: 100%;
+}
+
+.pagination-left {
+    text-align: left;
+}
+
+.centred {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+.unstyled {
+    list-style: none;
+}
+
+.textcentred {
+    text-align: center;
+}
+
+.bordered {
+    border: solid;
+    -webkit-border-radius: 20px; 
+    border-color: peachpuff;
+    /*border-color: white;*/
+}
