@@ -65,9 +65,11 @@ namespace Internet_Banking.Controllers
         }
         public ActionResult CreateAccount()
         {
+            var ac = new Accounts();
+            ac.StartDate = DateTime.Now.Date;
             ViewBag.UserId = new SelectList(db.aspnet_Users, "UserId", "UserName");
             ViewBag.Type = new SelectList(db.AccountTypes, "AccountTypeId", "Name");
-            return View();
+            return View(ac);
         }
 
         //
@@ -79,18 +81,20 @@ namespace Internet_Banking.Controllers
         {
             try
             {
-                var minTime = DateTime.Parse("01.01.1753");
-                var maxTime = DateTime.MaxValue;
-                if (accounts.StartDate > maxTime || accounts.StartDate < minTime)
-                    ModelState.AddModelError("", "StartDate Дата вне диапазона.");
                 if (ModelState.IsValid)
                 {
-                    accounts.AccountId = Guid.NewGuid();
-                    db.Accounts.Add(accounts);
-                    db.SaveChanges(); 
-                    return RedirectToAction("Dashboard");
+                    var minTime = DateTime.Parse("01.01.1753");
+                    var maxTime = DateTime.MaxValue;
+                    if (accounts.StartDate > maxTime || accounts.StartDate < minTime)
+                        ModelState.AddModelError("", "Дата вне диапазона.");
+                    else
+                    {
+                        accounts.AccountId = Guid.NewGuid();
+                        db.Accounts.Add(accounts);
+                        db.SaveChanges();
+                        return RedirectToAction("Dashboard");
+                    }
                 }
-
                 ViewBag.UserId = new SelectList(db.aspnet_Users, "UserId", "UserName", accounts.UserId);
                 ViewBag.Type = new SelectList(db.AccountTypes, "AccountTypeId", "Name", accounts.Type);
                 return View(accounts);
@@ -118,22 +122,30 @@ namespace Internet_Banking.Controllers
         {
             try
             {
-                var minTime = DateTime.Parse("01.01.1753");
-                var maxTime = DateTime.MaxValue;
-                if (cards.EndDate > maxTime || cards.EndDate < minTime)
-                    ModelState.AddModelError("", "EndDate Дата вне диапазона.");
-                if (cards.StartDate > maxTime || cards.StartDate < minTime)
-                    ModelState.AddModelError("", "StartDate Дата вне диапазона.");
+
                 if (ModelState.IsValid)
                 {
-                    cards.CardId = Guid.NewGuid();
-                    db.Cards.Add(cards);
-                    db.SaveChanges();
-                    return RedirectToAction("Dashboard");
+
+                    var minTime = DateTime.Parse("01.01.1753");
+                    var maxTime = DateTime.MaxValue;
+                    if (cards.EndDate > maxTime || cards.EndDate < minTime)
+                        ModelState.AddModelError("", "EndDate Дата вне диапазона.");
+                    if (cards.StartDate > maxTime || cards.StartDate < minTime)
+                        ModelState.AddModelError("", "StartDate Дата вне диапазона.");
+                    else
+                    {
+                        cards.CardId = Guid.NewGuid();
+                        db.Cards.Add(cards);
+                        db.SaveChanges();
+                        ModelState.AddModelError("", "Операция прошла успешно.");
+                        return View(cards);
+                        //return RedirectToAction("Dashboard");
+                    }
+
                 }
-                var states = from CardState s in Enum.GetValues(typeof(CardState))
-                             select new { ID = (int)s, Name = s.ToString() };
-                ViewBag.CardStatus = new SelectList(states, "State", "Name", cards.State);
+                //var states = from CardState s in Enum.GetValues(typeof(CardState))
+                //             select new { ID = (int)s, Name = s.ToString() };
+                ViewBag.CardStatus = new EnumHelper().SelectList;//new SelectList(states, "State", "Name", cards.State);
                 ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "Number", cards.AccountId);
                 return View(cards);
 

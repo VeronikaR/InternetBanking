@@ -47,11 +47,11 @@ namespace Internet_Banking.Services.Implements
 
             Membership.CreateUser(model.UserName, model.Password);
             MembershipUser membershipUser = Membership.GetUser(model.UserName);
-            //if (membershipUser == null)
-            //{
-            //    Membership.CreateUser(model.UserName, model.Password);
-            //    return false;
-            //}
+            if (membershipUser == null)
+            {
+                Membership.CreateUser(model.UserName, model.Password);
+                //return false;
+            }
 
             if (membershipUser != null && membershipUser.ProviderUserKey != null) 
                 model.UserId = (Guid)membershipUser.ProviderUserKey;

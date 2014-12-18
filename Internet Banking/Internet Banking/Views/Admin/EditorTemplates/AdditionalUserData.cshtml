@@ -14,7 +14,7 @@
 @using (Html.BeginForm("SaveUser", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
+    @Html.ValidationSummary(true)
     @Html.HiddenFor(m => m.UserId)
     
     <ul>
@@ -37,6 +37,7 @@
         <li>
             @Html.LabelFor(m => m.BirthDate)
             @Html.TextBoxFor(m => m.BirthDate)
+            @Html.ValidationMessageFor(m => m.BirthDate)
         </li>
         <li>
             @Html.LabelFor(m => m.Nationality)

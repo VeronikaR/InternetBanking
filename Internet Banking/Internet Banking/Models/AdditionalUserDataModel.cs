@@ -35,6 +35,7 @@ namespace Internet_Banking.Models
         public string MiddleName { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Дата рождения (формат даты дд.мм.гггг):")]
         public String BirthDate { get; set; }
 
@@ -49,9 +50,5 @@ namespace Internet_Banking.Models
         [Required]
         [Display(Name = "Номер паспорта:")]
         public string PassportNumber { get; set; }
-
-        //public AdditionalUserDataModel() {
-        //    UserId = Guid.Empty;
-        //}
     }
 }
